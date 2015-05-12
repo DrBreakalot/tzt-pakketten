@@ -6,6 +6,18 @@ public abstract class Location {
     private Double latitude;
     private Double longitude;
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
     public String getName() {
         return name;
     }

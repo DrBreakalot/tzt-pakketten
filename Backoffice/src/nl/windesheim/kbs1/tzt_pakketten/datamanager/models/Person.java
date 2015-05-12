@@ -20,4 +20,15 @@ public class Person {
         return address;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(AddressLocation address) {
+        this.address = address;
+    }
 }
