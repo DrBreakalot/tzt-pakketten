@@ -1,7 +1,7 @@
-package nl.windesheim.kbs1.tzt_pakketten.models.route;
+package nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route;
 
-import nl.windesheim.kbs1.tzt_pakketten.models.Money;
-import nl.windesheim.kbs1.tzt_pakketten.models.location.AddressLocation;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Money;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.location.AddressLocation;
 
 import java.time.Instant;
 import java.time.Duration;

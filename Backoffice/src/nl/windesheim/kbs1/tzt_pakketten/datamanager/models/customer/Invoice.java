@@ -1,7 +1,6 @@
-package nl.windesheim.kbs1.tzt_pakketten.models.customer;
+package nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer;
 
-import nl.windesheim.kbs1.tzt_pakketten.models.*;
-import nl.windesheim.kbs1.tzt_pakketten.models.Package;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Package;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -14,7 +13,7 @@ public class Invoice {
     private Instant date;
     private String number;
     private Duration paymentTerm;
-    private List<nl.windesheim.kbs1.tzt_pakketten.models.Package> packages;
+    private List<nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Package> packages;
 
     public Instant getDate() {
         return date;

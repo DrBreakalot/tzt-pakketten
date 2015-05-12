@@ -1,4 +1,4 @@
-package nl.windesheim.kbs1.tzt_pakketten.models.customer;
+package nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer;
 
 import java.util.ArrayList;
 import java.util.Collections;

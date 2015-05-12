@@ -1,6 +1,6 @@
-package nl.windesheim.kbs1.tzt_pakketten.models.route;
+package nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route;
 
-import nl.windesheim.kbs1.tzt_pakketten.models.location.StationLocation;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.location.StationLocation;
 
 public class TrainRouteLeg extends RouteLeg<StationLocation> {
     

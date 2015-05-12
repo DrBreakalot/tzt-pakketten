@@ -1,6 +1,6 @@
-package nl.windesheim.kbs1.tzt_pakketten.models;
+package nl.windesheim.kbs1.tzt_pakketten.datamanager.models;
 
-import nl.windesheim.kbs1.tzt_pakketten.models.location.StationLocation;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.location.StationLocation;
 
 import java.time.Instant;
 
