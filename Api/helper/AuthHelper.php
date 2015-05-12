@@ -33,6 +33,10 @@ function fillUserData() {
                     $courierStatement = $db->prepare('SELECT * FROM `trainCourier` WHERE `id` = :id');
                     $courierStatement->execute(array(':id' => $session["user_id"]));
                     $user = $courierStatement->fetch(PDO::FETCH_ASSOC);
+                } else if ($domain === "BackOffice") {
+                    $backofficeStatement = $db->prepare('SELECT * FROM `backofficeuser` WHERE `id` = :id');
+                    $backofficeStatement->execute(array(':id' => $session["user_id"]));
+                    $user = $backofficeStatement->fetch(PDO::FETCH_ASSOC);
                 }
 
                 if ($user !== null) {
@@ -115,6 +119,7 @@ function createPassword($password) {
  * @return string token if the user was successfully logged in
  */
 function loginCustomer($email, $password) {
+    global $db;
     $customerStatement = $db->prepare("SELECT `id`, `password` FROM `customer` WHERE `email` = :email");
     $customerStatement->execute(array(':email' => $email));
     $user = $customerStatement->fetch(PDO::FETCH_ASSOC);
@@ -122,6 +127,54 @@ function loginCustomer($email, $password) {
     if ($customerStatement->rowCount() > 0) {
         if (password_verify($password, $user["password"])) {
             return createSession("Customer", $user["id"]);            
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Logs the train courier into the system.
+ * @param type $email The email of the user to login
+ * @param type $password The password of the user to login
+ * @return boolean false if the email and password did not match
+ * @return string token if the user was successfully logged in
+ */
+function loginTrain($email, $password) {
+    global $db;
+    $traincourierStatement = $db->prepare("SELECT `id`, `password` FROM `traincourier` WHERE `email` = :email");
+    $traincourierStatement->execute(array(':email' => $email));
+    $user = $traincourierStatement->fetch(PDO::FETCH_ASSOC);
+    
+    if ($traincourierStatement->rowCount() > 0) {
+        if (password_verify($password, $user["password"])) {
+            return createSession("TrainCourier", $user["id"]);            
+        } else {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+/**
+ * Logs the backoffice user into the system.
+ * @param type $email The email of the user to login
+ * @param type $password The password of the user to login
+ * @return boolean false if the email and password did not match
+ * @return string token if the user was successfully logged in
+ */
+function loginOffice($email, $password) {
+    global $db;
+    $backofficeStatement = $db->prepare("SELECT `id`, `password` FROM `backofficeuser` WHERE `email` = :email");
+    $backofficeStatement->execute(array(':email' => $email));
+    $user = $backofficeStatement->fetch(PDO::FETCH_ASSOC);
+    
+    if ($backofficeStatement->rowCount() > 0) {
+        if (password_verify($password, $user["password"])) {
+            return createSession("BackOffice", $user["id"]);            
         } else {
             return false;
         }

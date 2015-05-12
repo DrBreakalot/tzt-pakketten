@@ -1,7 +1,7 @@
 <?php
 
-require_once '../helper/GeneralHelper.php';
-require_once '../helper/DatabaseHelper.php';
+require_once 'helper/GeneralHelper.php';
+require_once 'helper/DatabaseHelper.php';
 
 requireMethod(array("POST"));
 

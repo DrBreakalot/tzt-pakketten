@@ -1,7 +1,8 @@
 <?php
 
-require_once '../helper/GeneralHelper.php';
-require_once '../helper/DatabaseHelper.php';
+require_once 'helper/GeneralHelper.php';
+require_once 'helper/DatabaseHelper.php';
+require_once 'helper/AuthHelper.php';
 
 requireMethod(array("POST"));
 
@@ -20,7 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if ($type === "CUSTOMER") {
         $token = loginCustomer($json["email"], $json["password"]);
     } else if ($type === "TRAIN") {
-        
+        $token = loginTrain($json["email"], $json["password"]);
+    } else if ($type === "OFFICE") {
+        $token = loginOffice($json["email"], $json["password"]);
     } else {
         http_response_code(400);
         echo json_encode(array("error" => "Unknown type: $type"));

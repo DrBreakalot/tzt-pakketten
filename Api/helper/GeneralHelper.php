@@ -31,7 +31,7 @@ function requireMethod(array $allowedMethods) {
     }
     if (!$allowed) {
         http_response_code(405);
-        echo json_encode(array("error" => "Method not allowed", "allowed_methods" => $allowedMethods));
+        echo json_encode(array("error" => "Method $method not allowed", "allowed_methods" => $allowedMethods));
         die;
     }
     return true;
@@ -69,8 +69,9 @@ function requirePostParameters($parameters, $body) {
 function requireParameters($parameters, $arrayWhichShouldContainParameters, $errorMessage) {
     $illegalParameters = array();
     foreach ($parameters as $parameterName => $allowedTypes) {
-        if (!in_array(gettype($arrayWhichShouldContainParameters[$parameterName]), $allowedTypes)) {
-            $illegalParameters[$parameterName] = array("found_type" => gettype($arrayWhichShouldContainParameters[$parameterName]), "allowed_types" => $allowedTypes);
+        $foundParameter = (array_key_exists($parameterName, $arrayWhichShouldContainParameters) ? $arrayWhichShouldContainParameters[$parameterName] : null);
+        if (!in_array(gettype($foundParameter), $allowedTypes)) {
+            $illegalParameters[$parameterName] = array("found_type" => gettype($foundParameter), "allowed_types" => $allowedTypes);
         }
     }
     if (count($illegalParameters) > 0) {
