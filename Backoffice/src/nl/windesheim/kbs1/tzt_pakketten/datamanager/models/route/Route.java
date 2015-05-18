@@ -44,7 +44,7 @@ public class Route {
     public Duration getCalculatedDuration() {
         return getRouteLegs().stream()
                 .map(RouteLeg::getDuration)
-                .reduce(Duration.ZERO, (Duration old, Duration other) -> old.plus(other));
+                .reduce(Duration.ZERO, Duration::plus);
     }
 
     public List<RouteLeg<?>> getRouteLegs() {

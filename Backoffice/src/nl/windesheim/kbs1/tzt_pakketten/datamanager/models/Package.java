@@ -45,4 +45,11 @@ public class Package {
         return state;
     }
 
+    public static enum PackageState {
+        PREPARING,
+        ACCEPTED,
+        CANCELED,
+        EN_ROUTE,
+        ARRIVED
+    }
 }

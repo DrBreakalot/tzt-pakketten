@@ -15,6 +15,8 @@ function fillUserData() {
     global $token;
     global $user;
     global $session;
+    global $db;
+    global $TZT_AUTH_HEADER;
 
     if ($token === null) {
         $token = $_SERVER[$TZT_AUTH_HEADER];
@@ -34,9 +36,9 @@ function fillUserData() {
                     $courierStatement->execute(array(':id' => $session["user_id"]));
                     $user = $courierStatement->fetch(PDO::FETCH_ASSOC);
                 } else if ($domain === "BackOffice") {
-                    $backofficeStatement = $db->prepare('SELECT * FROM `backofficeuser` WHERE `id` = :id');
-                    $backofficeStatement->execute(array(':id' => $session["user_id"]));
-                    $user = $backofficeStatement->fetch(PDO::FETCH_ASSOC);
+                    $backOfficeStatement = $db->prepare('SELECT * FROM `backofficeuser` WHERE `id` = :id');
+                    $backOfficeStatement->execute(array(':id' => $session["user_id"]));
+                    $user = $backOfficeStatement->fetch(PDO::FETCH_ASSOC);
                 }
 
                 if ($user !== null) {
@@ -50,7 +52,7 @@ function fillUserData() {
 /**
  * Kills if the userType is not found, returns status code 401 to the client if not authenticated, or 403 if authenticated but not authorized
  * @param array $allowedUserTypes The required userTypes, null if no authorization required.
- * @returns boolan true if successful, doesn't return otherwise
+ * @returns boolean true if successful, doesn't return otherwise
  */
 function requireUserType(array $allowedUserTypes) {    
     fillUserData();
@@ -73,7 +75,7 @@ function requireUserType(array $allowedUserTypes) {
             break;
         }
     }
-    if (!found) {
+    if (!$found) {
         http_response_code(403);
         echo json_encode(array("error" => "Forbidden, invalid access type"));
         die;
@@ -83,8 +85,8 @@ function requireUserType(array $allowedUserTypes) {
 
 /**
  * Kills if the logged in user is not of the given type or does not have the given id.
- * @param type $userType Required type
- * @param type $userId Required id
+ * @param string $userType Required type
+ * @param string $userId Required id
  * @return boolean true if successful, doesn't return otherwise
  */
 function requireUser($userType, $userId) {
@@ -113,8 +115,8 @@ function createPassword($password) {
 
 /**
  * Logs the customer into the system.
- * @param type $email The email of the user to login
- * @param type $password The password of the user to login
+ * @param string $email The email of the user to login
+ * @param string $password The password of the user to login
  * @return boolean false if the email and password did not match
  * @return string token if the user was successfully logged in
  */
@@ -137,8 +139,8 @@ function loginCustomer($email, $password) {
 
 /**
  * Logs the train courier into the system.
- * @param type $email The email of the user to login
- * @param type $password The password of the user to login
+ * @param string $email The email of the user to login
+ * @param string $password The password of the user to login
  * @return boolean false if the email and password did not match
  * @return string token if the user was successfully logged in
  */
@@ -161,8 +163,8 @@ function loginTrain($email, $password) {
 
 /**
  * Logs the backoffice user into the system.
- * @param type $email The email of the user to login
- * @param type $password The password of the user to login
+ * @param string $email The email of the user to login
+ * @param string $password The password of the user to login
  * @return boolean false if the email and password did not match
  * @return string token if the user was successfully logged in
  */
@@ -191,9 +193,9 @@ function loginOffice($email, $password) {
 function createSession($domain, $userId) {
     global $db;
     $token = generateRandomString(128);
-    $statement = $db->prepare("INSERT INTO `session` (`token`, `domain`, `expiry_date`, `is_valid`, `user_id`) VALUES (:token, :domain, :expiry_date, :is_valid, :user_id");
+    $statement = $db->prepare("INSERT INTO `session` (`token`, `domain`, `expiry_date`, `is_valid`, `user_id`) VALUES (:token, :domain, :expiry_date, :is_valid, :user_id)");
     $statement->execute(array(
-        ":token" => token,
+        ":token" => $token,
         ":domain" => $domain,
         ":expiry_date" => strtotime("+1 year"),
         ":is_valid" => true,

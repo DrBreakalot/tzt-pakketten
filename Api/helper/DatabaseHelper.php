@@ -15,7 +15,7 @@ function insertLocation($location) {
 
 function insertCustomer($customer) {
     global $db;    
-    $insertStatement = $db->prepare('INSERT INTO `customer` (`name`, `email`, `address`, `is_business`, `kvk_number`, `password`) VALUES :name, :email, :address, :is_business, :kvk_number, :password');
+    $insertStatement = $db->prepare('INSERT INTO `customer` (`name`, `email`, `address`, `is_business`, `kvk_number`, `password`) VALUES (:name, :email, :address, :is_business, :kvk_number, :password)');
     $insertStatement->execute($customer);    
     return $db->lastInsertId();
 }
@@ -35,7 +35,7 @@ function selectCustomer($customerId) {
 
 function selectLocation($locationId) {
     global $db;
-    $statement = $db->prepare('SELECT `name`, `latitude`, `longitude`, `address`, `city`, `postal_code`, CASE(`is_station`) WHEN TRUE THEN "Station" ELSE "Address" END CASE AS `is_station` FROM `location` WHERE `id` = :id');
+    $statement = $db->prepare('SELECT `name`, `latitude`, `longitude`, `address`, `city`, `postal_code`, CASE(`is_station`) WHEN TRUE THEN "Station" ELSE "Address" END AS `is_station` FROM `location` WHERE `id` = :id');
     $statement->execute(array(':id' => $locationId));
     $location = $statement->fetch(PDO::FETCH_ASSOC);
     
