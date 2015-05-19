@@ -1,0 +1,84 @@
+/* 
+    Created on : 28-apr-2015, 18:54:12
+    Author     : Mehmet
+*/
+
+#logo { width: 300px;
+        height: 150px;
+        position: absolute;
+        top: 2%;
+        left: 4%;
+        background: white;
+}
+
+
+#logo ul {
+    list-style-type: none;
+    width: 180px;
+}
+#logo ul li {  
+    margin-left: 50px;
+    margin-top: 25px;
+}
+#logo ul li a {  
+    display: block;
+    padding: 0px;  
+    background-color: white;  
+    text-align: center;
+}  
+
+#rcorners2 {
+    position: absolute;
+    top: 40px;
+    left: 800px;
+    font-size: 12pt;
+    background: white;
+    border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 10px; 
+    width: 50px;
+    height: 10px; 
+}
+
+#midden {
+    position: absolute;
+    top: 15%;
+    left: 300px;
+    font-size: 12pt;
+    background: white;
+    border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 10px; 
+    width: 50px;
+    height: 10px; 
+}
+
+#menu ul {  
+    list-style-type: none;
+    width: 175px;
+
+}  
+
+#menu {
+    position: absolute;
+    top: 20%;
+    left: 8%;
+}
+#menu ul li {  
+    display: inline;
+    margin: 5px; 
+}
+#menu ul li a {  
+    display: block;
+    padding: 15px;  
+    background-color: #44699C;  
+    font-family: Verdana;  
+    color: white;
+    text-align: center;
+}  
+#menu ul li a:hover {  
+    /* Nieuw */  
+    background-color: #5F94DC;  
+} 
+
+
