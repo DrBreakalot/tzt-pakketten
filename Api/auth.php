@@ -1,8 +1,8 @@
 <?php
 
-require_once 'helper/GeneralHelper.php';
-require_once 'helper/DatabaseHelper.php';
-require_once 'helper/AuthHelper.php';
+require_once 'helper/general_helper.php';
+require_once 'helper/database_helper.php';
+require_once 'helper/auth_helper.php';
 
 requireMethod(array("POST"));
 

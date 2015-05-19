@@ -1,7 +1,7 @@
 <?php
 
-require_once 'DatabaseHelper.php';
-require_once 'GeneralHelper.php';
+require_once 'database_helper.php';
+require_once 'general_helper.php';
 
 $TZT_AUTH_HEADER = "HTTP_TZT_AUTHORIZATION";
 
@@ -42,7 +42,7 @@ function fillUserData() {
                 }
 
                 if ($user !== null) {
-                    $user["type"] = $session["domain"];
+                    $user["type"] = $domain;
                 }
             }
         }
