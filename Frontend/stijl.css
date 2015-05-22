@@ -9,9 +9,9 @@
         top: 2%;
         left: 4%;
         background: white;
+        float: left;
+        width: 750px;
 }
-
-
 #logo ul {
     list-style-type: none;
     width: 180px;
@@ -30,33 +30,209 @@
 #rcorners2 {
     position: absolute;
     top: 40px;
-    left: 800px;
+    left: 950px;
     font-size: 12pt;
     background: white;
     border-radius: 25px;
     border: 2px solid #8AC007;
+    padding: 10px;
+    float: left;
+    width: 200px;
+    height: 20px;
+}
+
+#welkom {
+    font-size: 34px;
+    position: relative;
+    left:450px;
+    top: 45px;
+}
+
+#inlogscherm {
+    position: absolute;
+    top: 10%;
+    left: 300px;
+    background-color: whitesmoke;
+    font-size: 12pt;
+    border-radius: 25px;
+    border: 2px solid #8AC007;
     padding: 10px; 
-    width: 50px;
-    height: 10px; 
+    float: left;
+    width: 780px;
+    height: 400px; 
+}
+
+#InlogForm {
+    font-size: 24px;
+    position: relative;
+    left:100px;
+    top: 45px;
+}
+
+#InlogForm input {
+    position: relative;
+    left: 20px;
+    top: 0px;
+}
+
+#InlogForm label {
+    width : 20%;
+    text-align : left;
+    font-size: 20px;
+    font-family: Verdana bold;
+    color: black;
+    font-weight: bold;
+}
+
+#InlogForm label, input {
+    display : block;
+    float : left;
+}
+
+#InlogForm br {
+    clear : both;
+}
+
+#registratieForm {
+    font-size: 24px;
+    position: relative;
+    left:100px;
+    top: 45px;
+}
+
+#registratieForm input {
+    position: relative;
+    left: 20px;
+    top: 0px;
+}
+
+#registratieForm label {
+    width : 20%;
+    text-align : left;
+    font-size: 20px;
+    font-family: Verdana bold;
+    color: black;
+    font-weight: bold;
+}
+
+#registratieForm label, input {
+    display : block;
+    float : left;
+}
+
+#registratieForm br {
+    clear : both;
+}
+
+#registreren2 {
+    position: relative;
+    left: 180px;
+    top: 10px;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    background: #44699C;
+    color: white;
+}
+
+#inloggen2 {
+    position: relative;
+    left: 180px;
+    top: 10px;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    background: #44699C;
+    color: white;
 }
 
 #midden {
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 300px;
+    background-color: whitesmoke;
     font-size: 12pt;
-    background: white;
     border-radius: 25px;
     border: 2px solid #8AC007;
     padding: 10px; 
-    width: 50px;
-    height: 10px; 
+    float: left;
+    width: 780px;
+    height: 400px; 
+}
+#middenRegistratieScherm {
+    position: absolute;
+    top: 10%;
+    left: 300px;
+    background-color: whitesmoke;
+    font-size: 12pt;
+    border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 10px; 
+    float: left;
+    width: 780px;
+    height: 800px; 
+}
+#middenOnzediensten {
+    position: absolute;
+    top: 10%;
+    left: 300px;
+    background-color: whitesmoke;
+    font-size: 12pt;
+    color: black;
+    font-family: verdana;
+    border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 10px; 
+    float: left;
+    width: 780px;
+    height: 800px; 
+}
+#middenOnzediensten ul {
+    list-style-type: none;
+    width: 280px;
+}
+#middenOnzediensten ul li {  
+    margin-left: 50px;
+    width: 280px;
+}
+#middenOnzediensten ul li a {  
+    display: block;
+    padding: 0px;  
+    background-color: white;  
+    text-align: center;
+    width: 280px;
+}  
+
+#Inloggen{
+    position: relative;
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    color: white;
+    background:#44699C;
+    left:150px;
+    top:150px;
+}
+#Inloggen a:hover {
+    background-color: #5F94DC;
+}
+
+#Registreren {
+    position: relative;
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    background:#44699C;
+    color: white;
+    left:250px;
+    top:150px;
 }
 
 #menu ul {  
     list-style-type: none;
     width: 175px;
-
 }  
 
 #menu {
@@ -80,5 +256,13 @@
     /* Nieuw */  
     background-color: #5F94DC;  
 } 
+#tekstWachtwoordVergeten {
+    width : 20%;
+    text-align : left;
+    font-size: 20px;
+    font-family: Verdana bold;
+    color: black;
+    font-weight: bold;
+}
 
 
