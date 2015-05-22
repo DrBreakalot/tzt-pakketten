@@ -33,6 +33,7 @@ public class DataManager {
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(Config.API_URL)
                 .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setRequestInterceptor(interceptor)
                 .build();
 
         service = restAdapter.create(TztService.class);

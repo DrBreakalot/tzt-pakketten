@@ -1,7 +1,8 @@
 <?php
 
-require_once 'helper/GeneralHelper.php';
-require_once 'helper/DatabaseHelper.php';
+require_once 'helper/general_helper.php';
+require_once 'helper/database_helper.php';
+require_once 'helper/auth_helper.php';
 
 requireMethod(array("POST"));
 
@@ -16,7 +17,7 @@ function createCustomer($json) {
         "name" => array("string"),
         "email" => array("string"),
         "password" => array("string"),
-        "is_business" => array("string"),
+        "is_business" => array("boolean"),
         "address" => array("array", "NULL"),
         "kvk_number" => array("string", "NULL"),
     );
@@ -25,7 +26,7 @@ function createCustomer($json) {
 
     global $db;
     $existingCustomerStatement = $db->prepare('SELECT `id` FROM `customer` WHERE `email` = :email');
-    $existingCustomerStatement->execute(array(':email' => requireType(array("string"), $json["email"], "email")));
+    $existingCustomerStatement->execute(array(':email' => $json['email']));
     if ($existingCustomerStatement->rowCount() > 0) {
         http_response_code(409);
         $existingCustomer = $existingCustomerStatement->fetch(PDO::FETCH_ASSOC);
@@ -56,11 +57,11 @@ function createCustomer($json) {
         requirePostParameters($json["address"], $requiredAddressParameters);
         $address = array();
         $address["name"] = $json["address"]["name"];
-        $address["latitude"] = $json["address"]["name"];
-        $address["longitude"] = $json["address"]["name"];
-        $address["address"] = $json["address"]["name"];
-        $address["city"] = $json["address"]["name"];
-        $address["postal_code"] = $json["address"]["name"];
+        $address["latitude"] = $json["address"]["latitude"];
+        $address["longitude"] = $json["address"]["longitude"];
+        $address["address"] = $json["address"]["address"];
+        $address["city"] = $json["address"]["city"];
+        $address["postal_code"] = $json["address"]["postal_code"];
         $address["isStation"] = false;
 
         $addressId = insertLocation($address);
