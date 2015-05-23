@@ -97,18 +97,18 @@ function generateRandomString($length = 10) {
     return $randomString;
 }
 
-function fillLatitudeLongitude($address) {
-    if (!array_key_exists("latitude", $address) || $address["latitude"] === null || !array_key_exists("longitude", $address) || $address["longitude"] === null) {
-        $latlng = getLatLong($address["address"], $address["city"], $address["postalCode"]);
+function fillLatitudeLongitude(&$address) {
+    if (!array_key_exists("latitude", $address) || $address["latitude"] === null
+        || !array_key_exists("longitude", $address) || $address["longitude"] === null) {
+        $latlng = getLatLong($address["address"], $address["city"], $address["postal_code"]);
         $address["latitude"] = $latlng["lat"];
         $address["longitude"] = $latlng["lng"];
     }
-    return $address;
 }
 
-function distanceBetween($location1, $location2) {
-    $location1 = fillLatitudeLongitude($location1);
-    $location2 = fillLatitudeLongitude($location2);
+function distanceBetween(&$location1, &$location2) {
+    fillLatitudeLongitude($location1);
+    fillLatitudeLongitude($location2);
     return vincentyGreatCircleDistance($location1["latitude"], $location1["longitude"], $location2["latitude"], $location2["longitude"]);
 }
 

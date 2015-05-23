@@ -26,8 +26,8 @@ function getLatLong($address, $city, $postalCode) {
 
 function getDistanceTime($from, $to, $mode) {
     $origin = $from["latitude"] . "," . $from["longitude"];
-    $destination = $to["latitude"] . "," . $from["longitude"];
-    $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" . urlencode($origin) . "&destinations=" . urlencode($destination) . "&mode=" . $mode . "&key=" . Config::GOOGLE_API_KEY;
+    $destination = $to["latitude"] . "," . $to["longitude"];
+    $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" . $origin . "&destinations=" . $destination . "&mode=" . $mode . "&key=" . Config::GOOGLE_API_KEY;
     if ($mode === "transit") {
         $url .= "&transit_mode=train";
     }
