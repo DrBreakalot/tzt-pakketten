@@ -1,7 +1,7 @@
 <?php
 
-require_once 'database_helper.php';
-require_once 'general_helper.php';
+require_once dirname(__FILE__).'/database_helper.php';
+require_once dirname(__FILE__).'/general_helper.php';
 
 $TZT_AUTH_HEADER = "HTTP_TZT_AUTHORIZATION";
 
@@ -19,7 +19,7 @@ function fillUserData() {
     global $TZT_AUTH_HEADER;
 
     if ($token === null) {
-        $token = $_SERVER[$TZT_AUTH_HEADER];
+        $token = getArrayValue($TZT_AUTH_HEADER, $_SERVER);
         $user = null;
         $session = null;
 
@@ -27,6 +27,7 @@ function fillUserData() {
             $statement = $db->prepare('SELECT * FROM `session` WHERE `token` = :token AND `is_valid` AND `expiry_date` > NOW()');
             $statement->execute(array(':token' => $token));
             $session = $statement->fetch(PDO::FETCH_ASSOC);
+
             if ($session !== null) {
                 $domain = $session["domain"];
                 if ($domain === "Customer") {
@@ -197,7 +198,7 @@ function createSession($domain, $userId) {
     $statement->execute(array(
         ":token" => $token,
         ":domain" => $domain,
-        ":expiry_date" => strtotime("+1 year"),
+        ":expiry_date" => date('Y-m-d', strtotime("+1 year")),
         ":is_valid" => true,
         ":user_id" => $userId,
     ));

@@ -97,6 +97,14 @@ function generateRandomString($length = 10) {
     return $randomString;
 }
 
+function getArrayValue($key, $array) {
+    if (array_key_exists($key, $array)) {
+        return $array[$key];
+    } else {
+        return null;
+    }
+}
+
 function fillLatitudeLongitude(&$address) {
     if (!array_key_exists("latitude", $address) || $address["latitude"] === null
         || !array_key_exists("longitude", $address) || $address["longitude"] === null) {

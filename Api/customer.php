@@ -37,14 +37,14 @@ function createCustomer($json) {
     $parameters = array();
     $parameters["name"] = $json["name"];
     $parameters["email"] = $json["email"];
-    $parameters["is_business"] = $json["is_business"];
-    $parameters["kvk_number"] = $json["kvk_number"];
+    $parameters["is_business"] =  $json["is_business"];
+    $parameters["kvk_number"] = getArrayValue("kvk_number", $json);
     $parameters["address"] = null;
     $parameters["password"] = createPassword($json["password"]);
 
     $addressId = null;
 
-    if ($json["address"] != null) {
+    if (getArrayValue("address", $json) !== null) {
         $requiredAddressParameters = array(
             "name" => array("string", "NULL"),
             "latitude" => array("double", "integer", "NULL"),
@@ -69,7 +69,7 @@ function createCustomer($json) {
     }
 
 
-    $customerId = insertCustomer($json);
+    $customerId = insertCustomer($parameters);
     $insertedCustomer = selectCustomer($customerId);
 
     http_response_code(201);
