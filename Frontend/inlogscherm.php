@@ -17,9 +17,6 @@
                 </ul>  
 
             </div>
-            <span id="welkom">
-                <a href=""></a>
-            </span>
 
             <span id="rcorners2">
                 <a href=""><img src="magnifier_16.png" width="16" height="16"></a>
@@ -29,23 +26,26 @@
         <div id="menu">  
             <ul>  
                 <li><a href="index.php" title="Home">Home</a></li>  
-                <li><a href="onzediensten.php" title="Onze diensten">Onze diensten</a></li>  
+                <li><a href="/onze diensten/" title="Onze diensten">Onze diensten</a></li>  
                 <li><a href="/mijn pakket/" title="Mijn Pakket">Mijn Pakket</a></li>  
-                <li><a href="contact" title="Contact">Contact</a></li> 
-             
+                <li><a href="contact" title="Contact">Contact</a></li>
+
             </ul>
-            <div id="midden">
+            <span id="inlogscherm">
 
+                <form id="InlogForm" method="get" action="verwerk.php">
 
-                <a href="inlogscherm.php">
-                    <input id="Inloggen" type="button" value="Inloggen" />
-                </a>
-                <a href="Registratieformulier.php">
-                    <input id="Registreren" type="button" value="Registreren" />
-                </a>
-                </a>
+                    <label for "gebruikersnaam">Gebruikersnaam:</label>
+                    <input type="text" name="gebruikersnaam"><br/><br/>
+                    <label for "wachtwoord">Wachtwoord:</label>
+                    <input type="text" name="wachtwoord"><br/><br/>
 
-            </div>
+                    <span id="tekstWachtwoordVergeten" href="" method="get" action="verwerk1.php">
+                        Wachtwoord vergeten? Klik hier</span><br/>
+                    <br/>
+                    <input id="inloggen2" type="submit" value="Inloggen">
+                </form>
+            </span>
 
 
 
