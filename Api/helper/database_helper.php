@@ -171,3 +171,70 @@ function selectCouriers() {
 
     return $couriers;
 }
+
+function selectPackage($packageId) {
+    global $db;
+    $packageStatement = $db->prepare('SELECT * FROM `package` WHERE `id` = :id');
+    $packageStatement->execute(array(
+        ':id' => $packageId,
+    ));
+    $package = $packageStatement->fetch(PDO::FETCH_ASSOC);
+
+    if ($package === null) {
+        return null;
+    }
+
+    $route = selectRoute($package['route_id']);
+    $package['route'] = $route;
+
+    return $package;
+}
+
+function selectRoute($routeId) {
+    global $db;
+    $routeStatement = $db->prepare('SELECT * FROM `route` WHERE `id` = :id');
+    $routeStatement->execute(array(
+        ':id' => $routeId,
+    ));
+    $route = $routeStatement->fetch(PDO::FETCH_ASSOC);
+
+    if ($route === null) {
+        return null;
+    }
+
+    $route['legs'] = selectRouteLegsWithRouteId($routeId);
+    $route['from'] = selectLocation($routeId['from_address']);
+    $route['to'] = selectLocation($routeId['to_address']);
+
+    return $route;
+}
+
+function selectRouteLegsWithRouteId($routeId) {
+    global $db;
+    $legStatement = $db->prepare('SELECT * FROM `routeleg` WHERE `route_id` = :route_id');
+    $legStatement->execute(array(
+        ':route_id' => $routeId,
+    ));
+    $routeLegs = $legStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($routeLegs === null) {
+        return null;
+    }
+
+    foreach ($routeLegs as $key => $routeLeg) {
+        $routeLeg['to'] = selectLocation($routeLeg['to_location_id']);
+        $routeLeg['from'] = selectLocation($routeLeg['from_location_id']);
+        $routeLegs[$key] = $routeLeg;
+    }
+
+    return $routeLegs;
+}
+
+function updatePackageState($packageId, $packageState) {
+    global $db;
+    $update = $db->prepare('UPDATE `package` SET `state` = :state WHERE `id` = :id');
+    $update->execute(array(
+        ':state' => $packageState,
+        ':id' => $packageId,
+    ));
+}

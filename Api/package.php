@@ -9,11 +9,57 @@ require_once 'helper/auth_helper.php';
 requireMethod(array("POST"));
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    requireUserType(array("Customer"));
+    if (array_key_exists('package_id', $_GET)) {
+        requireUserType(array("Customer", "BackOffice"));
+        decodePostBody();
+        acceptPackage($json, $_GET['package_id']);
+    } else {
+        requireUserType(array("Customer"));
+        decodePostBody();
+        createPackage($json);
+    }
+}
 
-    decodePostBody();
+function acceptPackage($json, $packageId) {
+    global $user;
+    $package = selectPackage($packageId);
+    if ($package['customer_id'] === null) {
+        http_response_code(404);
+        echo json_encode(array(
+            'error' => 'Package not found'
+        ));
+        die;
+    }
+    if ($user['type'] === 'Customer') {
+        if ($user['id'] !== $package['customer_id']) {
+            http_response_code(403);
+            echo json_encode(array(
+                'error' => 'This package belongs to another customer'
+            ));
+            die;
+        }
+    }
 
-    createPackage($json);
+    if ($package['state'] !== 'PREPARING') {
+        http_response_code(409);
+        echo json_encode(array(
+            'error' => 'This package has already been accepted or canceled',
+        ));
+        die;
+    }
+
+    $requiredParameters = array(
+        'accept' => array('boolean'),
+    );
+    requirePostParameters($requiredParameters, $json, null);
+
+    $accepted = $json['accept'];
+    if ($accepted) {
+        $package['state'] = "ACCEPTED";
+    } else {
+        $package['state'] = "CANCELED";
+    }
+    updatePackageState($packageId, $package['state']);
 }
 
 function createPackage($json) {
