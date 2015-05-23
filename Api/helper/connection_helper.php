@@ -2,31 +2,15 @@
 
 require_once dirname(__FILE__).'/../config/config.php';
 
-/*
-$url = 'URL';
-$data = array('field1' => 'value', 'field2' => 'value');
-$options = array(
-        'http' => array(
-        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        'method'  => 'POST',
-        'content' => http_build_query($data),
-    )
-);
-
-$context  = stream_context_create($options);
-$result = file_get_contents($url, false, $context);
-var_dump($result);
- */
-
 function getLatLong($address, $city, $postalCode) {
     $combinedAddress = $address . ", " . $postalCode . " " . $city;
 
-    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . $combinedAddress . "&key=" . Config::GOOGLE_API_KEY;
+    $url = "https://maps.googleapis.com/maps/api/geocode/json?address=" . urlencode($combinedAddress) . "&key=" . Config::GOOGLE_API_KEY;
     $context = stream_context_create();
     $result = file_get_contents($url, false, $context);
 
     if (isset($result)) {
-        $parsedResult = json_decode($result);
+        $parsedResult = json_decode($result, true);
 
         if (isset($parsedResult["results"])) {
             $results = $parsedResult["results"];
@@ -38,4 +22,34 @@ function getLatLong($address, $city, $postalCode) {
     } else {
         echo "HELP";
     }
+}
+
+function getDistanceTime($from, $to, $mode) {
+    $origin = $from["latitude"] . "," . $from["longitude"];
+    $destination = $to["latitude"] . "," . $from["longitude"];
+    $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=" . urlencode($origin) . "&destinations=" . urlencode($destination) . "&mode=" . $mode . "&key=" . Config::GOOGLE_API_KEY;
+    if ($mode === "transit") {
+        $url .= "&transit_mode=train";
+    }
+    $context = stream_context_create();
+    $result = file_get_contents($url, false, $context);
+    $element = null;
+    if (isset($result)) {
+        $parsedResult = json_decode($result, true);
+        if (isset($parsedResult["rows"])) {
+            if (isset($parsedResult["rows"][0]["elements"])) {
+                $element = $parsedResult["rows"][0]["elements"][0];
+            }
+        }
+    }
+    $duration = null;
+    $distance = null;
+    if ($element) {
+        $duration = $element["duration"]["value"];
+        $distance = $element["distance"]["value"];
+    }
+    return array(
+        "duration" => $duration,
+        "distance" => $distance / 1000.0,
+    );
 }

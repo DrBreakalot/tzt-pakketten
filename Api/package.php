@@ -38,24 +38,5 @@ function createPackage($json) {
     requirePostParameters($requiredAddressParameters, $json["from"], "from");
     requirePostParameters($requiredAddressParameters, $json["to"], "to");
 
-    $stations = selectStations();
-
-    $closestToStation = null;
-    $closestFromStation = null;
-    $closestToDistance = 9999999999999;
-    $closestFromDistance = 9999999999999;
-    foreach ($stations as $station) {
-        $toDistance = distanceBetween($toAddress, $station);
-        $fromDistance = distanceBetween($fromAddress, $station);
-        if ($toDistance < $closestToDistance) {
-            $closestToDistance = $toDistance;
-            $closestToStation = $station;
-        }
-        if ($fromDistance < $closestFromDistance) {
-            $closestFromDistance = $fromDistance;
-            $closestFromStation = $station;
-        }
-    }
-    $addressDistance = distanceBetween($toAddress, $fromAddress);
-    //TODO
+    $route = calculateRoute($fromAddress, $toAddress);
 }

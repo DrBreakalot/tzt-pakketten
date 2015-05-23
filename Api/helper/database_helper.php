@@ -50,7 +50,7 @@ function selectCustomer($customerId) {
 
 function selectLocation($locationId) {
     global $db;
-    $statement = $db->prepare('SELECT `name`, `latitude`, `longitude`, `address`, `city`, `postal_code`, CASE(`is_station`) WHEN TRUE THEN "Station" ELSE "Address" END AS `type` FROM `location` WHERE `id` = :id');
+    $statement = $db->prepare('SELECT `id`, `name`, `latitude`, `longitude`, `address`, `city`, `postal_code`, CASE(`is_station`) WHEN TRUE THEN "Station" ELSE "Address" END AS `type` FROM `location` WHERE `id` = :id');
     $statement->execute(array(':id' => $locationId));
     $location = $statement->fetch(PDO::FETCH_ASSOC);
     
@@ -59,10 +59,27 @@ function selectLocation($locationId) {
 
 function selectStations() {
     global $db;
-    $statement = $db->prepare('SELECT `name`, `latitude`, `longitude`, "Station" AS `type` FROM `location` WHERE `is_station`');
+    $statement = $db->prepare('SELECT `id`, `name`, `latitude`, `longitude`, "Station" AS `type` FROM `location` WHERE `is_station`');
     $statement->execute();
     $stations = $statement->fetch(PDO::FETCH_ASSOC);
 
     return $stations;
+}
 
+function selectCouriers() {
+    global $db;
+    $statement = $db->prepare('SELECT `id`, `name`, `description`, `transit_mode` FROM `courier`');
+    $statement->execute();
+    $couriers = $statement->fetch(PDO::FETCH_ASSOC);
+
+    foreach ($couriers as $courier) {
+        $calculatorStatement = $db->prepare('SELECT `id`, `cost`, `per_kilometer`, `start_distance`, `courier_id`, `minimum_distance`, `maximum_distance` FROM `tariffcalculator` WHERE `courier_id` = :courier_id');
+        $calculatorStatement->execute(array(
+            ':courier_id' => $courier["id"],
+        ));
+        $calculators = $statement->fetch(PDO::FETCH_ASSOC);
+        $courier['calculators'] = $calculators;
+    }
+
+    return $couriers;
 }
