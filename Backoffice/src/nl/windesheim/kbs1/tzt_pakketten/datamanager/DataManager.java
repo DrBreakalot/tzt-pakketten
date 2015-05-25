@@ -1,7 +1,7 @@
 package nl.windesheim.kbs1.tzt_pakketten.datamanager;
 
 import nl.windesheim.kbs1.tzt_pakketten.Config;
-import nl.windesheim.kbs1.tzt_pakketten.http.TztService;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.http.TztService;
 import retrofit.Callback;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
@@ -39,19 +39,27 @@ public class DataManager {
         service = restAdapter.create(TztService.class);
     }
 
-    public void login(String email, String password) {
+    public void login(String email, String password, NoDataCallback callback) {
         service.login(new TztService.LoginRequest(email, password), new Callback<TztService.LoginResponse>() {
             @Override
             public void success(TztService.LoginResponse loginResponse, Response response) {
                 authToken = loginResponse.token;
+                callback.onDone(true);
             }
 
             @Override
             public void failure(RetrofitError retrofitError) {
-
+                callback.onDone(false);
             }
         });
     }
 
+    public static interface NoDataCallback {
+        public void onDone(boolean success);
+    }
+
+    public static interface DataCallback<T> {
+        public void onDone(boolean success, T data);
+    }
 
 }

@@ -1,4 +1,4 @@
-package nl.windesheim.kbs1.tzt_pakketten.http;
+package nl.windesheim.kbs1.tzt_pakketten.datamanager.http;
 
 import retrofit.Callback;
 import retrofit.http.Body;
