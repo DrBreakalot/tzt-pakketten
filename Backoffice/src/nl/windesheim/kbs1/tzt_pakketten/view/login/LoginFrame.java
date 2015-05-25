@@ -1,6 +1,7 @@
 package nl.windesheim.kbs1.tzt_pakketten.view.login;
 
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.DataManager;
+import nl.windesheim.kbs1.tzt_pakketten.view.main.Main;
 
 import javax.swing.*;
 
@@ -101,7 +102,8 @@ public class LoginFrame extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         DataManager.getInstance().login(emailField.getText(), new String(passwordField.getPassword()), (success) -> {
             if (success) {
-
+                new Main().setVisible(true);
+                dispose();
             } else {
                 showLoginFailedDialog();
             }

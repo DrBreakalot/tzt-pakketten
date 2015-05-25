@@ -131,8 +131,26 @@ function selectCustomer($customerId) {
     if ($user["address"] != null) {
         $user["address"] = selectLocation($user["address"]);
     }
+    $user['is_business'] = boolval($user['is_business']);
     
     return $user;
+}
+
+function selectCustomers() {
+    global $db;
+    $customerStatement = $db->prepare("SELECT `id`, `name`, `email`, `is_business`, `kvk_number`, `address` FROM `customer`");
+    $customerStatement->execute();
+    $users = $customerStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($users as $key => $user) {
+        if ($user["address"] != null) {
+            $user["address"] = selectLocation($user["address"]);
+        }
+        $user['is_business'] = boolval($user['is_business']);
+        $users[$key] = $user;
+    }
+
+    return $users;
 }
 
 function selectLocation($locationId) {
