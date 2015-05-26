@@ -1,4 +1,4 @@
-package nl.windesheim.kbs1.tzt_pakketten.view.main;
+package nl.windesheim.kbs1.tzt_pakketten.view.overview;
 
 /**
  *
@@ -23,8 +23,8 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         javax.swing.JTabbedPane jTabbedPane2 = new javax.swing.JTabbedPane();
-        customerPanel1 = new nl.windesheim.kbs1.tzt_pakketten.view.main.CustomerPanel();
-        trainCourierPanel1 = new nl.windesheim.kbs1.tzt_pakketten.view.main.TrainCourierPanel();
+        customerPanel1 = new nl.windesheim.kbs1.tzt_pakketten.view.overview.CustomerPanel();
+        trainCourierPanel1 = new nl.windesheim.kbs1.tzt_pakketten.view.overview.TrainCourierPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,7 +47,7 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private nl.windesheim.kbs1.tzt_pakketten.view.main.CustomerPanel customerPanel1;
-    private nl.windesheim.kbs1.tzt_pakketten.view.main.TrainCourierPanel trainCourierPanel1;
+    private nl.windesheim.kbs1.tzt_pakketten.view.overview.CustomerPanel customerPanel1;
+    private nl.windesheim.kbs1.tzt_pakketten.view.overview.TrainCourierPanel trainCourierPanel1;
     // End of variables declaration//GEN-END:variables
 }

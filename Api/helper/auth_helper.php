@@ -96,7 +96,7 @@ function requireUser($userType, $userId) {
     requireUserType(array($userType));
     
     global $user;
-    if (!($user["type"] === $userType && $user["id"] === $userId)) {
+    if (!($user["type"] === $userType && $user["id"] == $userId)) {
         http_response_code(403);
         echo json_encode(array("error" => "Forbidden, invalid access id"));
         die;

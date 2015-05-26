@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 import nl.windesheim.kbs1.tzt_pakketten.Config;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.http.CustomerDeserializer;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.http.TztService;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.*;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Package;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route.TrainCourier;
 import retrofit.Callback;
@@ -66,31 +68,15 @@ public class DataManager {
     }
 
     public void getCustomers(DataCallback<List<Customer>> callback) {
-        service.getCustomers(new Callback<List<Customer>>() {
-            @Override
-            public void success(List<Customer> customers, Response response) {
-                callback.onDone(true, customers);
-            }
-
-            @Override
-            public void failure(RetrofitError retrofitError) {
-                callback.onDone(false, null);
-            }
-        });
+        service.getCustomers(new RetroCallback<>(callback));
     }
 
     public void getTrainCouriers(DataCallback<List<TrainCourier>> callback) {
-        service.getTrainCouriers(new Callback<List<TrainCourier>>() {
-            @Override
-            public void success(List<TrainCourier> trainCouriers, Response response) {
-                callback.onDone(true, trainCouriers);
-            }
+        service.getTrainCouriers(new RetroCallback<>(callback));
+    }
 
-            @Override
-            public void failure(RetrofitError retrofitError) {
-                callback.onDone(false, null);
-            }
-        });
+    public void getPackages(Customer customer, DataCallback<List<nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Package>> callback) {
+        service.getPackages(customer.getId(), new RetroCallback<>(callback));
     }
 
     public interface NoDataCallback {
@@ -99,6 +85,25 @@ public class DataManager {
 
     public interface DataCallback<T> {
         void onDone(boolean success, T data);
+    }
+
+    private static class RetroCallback<T> implements Callback<T> {
+
+        private DataCallback<T> callback;
+
+        private RetroCallback(DataCallback<T> callback) {
+            this.callback = callback;
+        }
+
+        @Override
+        public void success(T t, Response response) {
+            callback.onDone(true, t);
+        }
+
+        @Override
+        public void failure(RetrofitError retrofitError) {
+            callback.onDone(false, null);
+        }
     }
 
 }

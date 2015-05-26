@@ -1,7 +1,9 @@
-package nl.windesheim.kbs1.tzt_pakketten.view.main;
+package nl.windesheim.kbs1.tzt_pakketten.view.overview;
 
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.DataManager;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
+
+import javax.swing.*;
 
 /**
  * Created by Wilco on 26-5-2015.
@@ -19,4 +21,9 @@ public class CustomerPanel extends ListPanel<Customer> {
         });
     }
 
+    @Override
+    protected void onDoubleClick(Customer element) {
+        super.onDoubleClick(element);
+        new PackageSelector((JFrame)SwingUtilities.getWindowAncestor(this), false, element).setVisible(true);
+    }
 }

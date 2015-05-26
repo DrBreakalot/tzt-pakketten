@@ -1,7 +1,7 @@
-package nl.windesheim.kbs1.tzt_pakketten.view.main;
+package nl.windesheim.kbs1.tzt_pakketten.view.overview;
 
-import nl.windesheim.kbs1.tzt_pakketten.datamanager.DataManager;
-import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 
 import javax.swing.*;
@@ -28,12 +28,23 @@ public abstract class ListPanel<T> extends javax.swing.JPanel {
         initComponents();
         customerList.setModel(listModel);
         customerList.setCellRenderer(new TRenderer());
+        customerList.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if (e.getClickCount() == 2) {
+                    onDoubleClick(customerList.getModel().getElementAt(customerList.locationToIndex(e.getPoint())));
+                }
+            }
+        });
     }
 
-    protected void setElements(List<T> elements) {
+    protected final void setElements(List<T> elements) {
         listModel.removeAllElements();
         elements.forEach(listModel::addElement);
     }
+
+    protected void onDoubleClick(T element) {}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,7 +79,7 @@ public abstract class ListPanel<T> extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList customerList;
+    private javax.swing.JList<T> customerList;
     // End of variables declaration//GEN-END:variables
 
     private class TRenderer extends DefaultListCellRenderer {

@@ -8,9 +8,10 @@ requireMethod(array("GET"));
 requireUserType(array("BackOffice", "Customer"));
 
 if ($user['type'] === "BackOffice") {
-    requireGetParameters("user_id", "string", "integer");
-    getPackagesForUser($_GET['user_id']);
+    requireGetParameters(array("customer_id" => array("string", "integer")));
+    getPackagesForUser($_GET['customer_id']);
 } else {
+    requireUser("Customer", $_GET['customer_id']);
     getPackagesForUser($user['id']);
 }
 

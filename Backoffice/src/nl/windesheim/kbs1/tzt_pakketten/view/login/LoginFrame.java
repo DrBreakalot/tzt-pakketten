@@ -1,7 +1,7 @@
 package nl.windesheim.kbs1.tzt_pakketten.view.login;
 
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.DataManager;
-import nl.windesheim.kbs1.tzt_pakketten.view.main.Main;
+import nl.windesheim.kbs1.tzt_pakketten.view.overview.Main;
 
 import javax.swing.*;
 

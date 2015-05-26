@@ -44,7 +44,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Component class="nl.windesheim.kbs1.tzt_pakketten.view.main.CustomerPanel" name="customerPanel1">
+        <Component class="nl.windesheim.kbs1.tzt_pakketten.view.overview.CustomerPanel" name="customerPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Klanten">
@@ -53,7 +53,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="nl.windesheim.kbs1.tzt_pakketten.view.main.TrainCourierPanel" name="trainCourierPanel1">
+        <Component class="nl.windesheim.kbs1.tzt_pakketten.view.overview.TrainCourierPanel" name="trainCourierPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Treinkoeriers">
