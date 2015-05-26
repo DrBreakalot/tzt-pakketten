@@ -6,6 +6,7 @@ import nl.windesheim.kbs1.tzt_pakketten.Config;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.http.CustomerDeserializer;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.http.TztService;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route.TrainCourier;
 import retrofit.Callback;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
@@ -78,12 +79,26 @@ public class DataManager {
         });
     }
 
-    public static interface NoDataCallback {
-        public void onDone(boolean success);
+    public void getTrainCouriers(DataCallback<List<TrainCourier>> callback) {
+        service.getTrainCouriers(new Callback<List<TrainCourier>>() {
+            @Override
+            public void success(List<TrainCourier> trainCouriers, Response response) {
+                callback.onDone(true, trainCouriers);
+            }
+
+            @Override
+            public void failure(RetrofitError retrofitError) {
+                callback.onDone(false, null);
+            }
+        });
     }
 
-    public static interface DataCallback<T> {
-        public void onDone(boolean success, T data);
+    public interface NoDataCallback {
+        void onDone(boolean success);
+    }
+
+    public interface DataCallback<T> {
+        void onDone(boolean success, T data);
     }
 
 }

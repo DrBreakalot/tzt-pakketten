@@ -2,34 +2,37 @@ package nl.windesheim.kbs1.tzt_pakketten.view.main;
 
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.DataManager;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
+import java.util.List;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author Wilco Wolters
  */
-public class CustomersPanel extends javax.swing.JPanel {
+public abstract class ListPanel<T> extends javax.swing.JPanel {
 
-    private DefaultListModel<Customer> listModel = new DefaultListModel<>();
+    private DefaultListModel<T> listModel = new DefaultListModel<>();
+    private Renderer<T> renderer;
+
+    public ListPanel() {
+        this(t -> t == null ? "null" : t.toString());
+    }
 
     /**
-     * Creates new form CustomersPanel
+     * Creates new form ListPanel
      */
-    public CustomersPanel() {
+    public ListPanel(Renderer<T> renderer) {
+        this.renderer = renderer;
         initComponents();
-        DataManager.getInstance().getCustomers((success, data) -> {
-            if (success) {
-                listModel.removeAllElements();
-                data.forEach(listModel::addElement);
-
-            }
-        });
         customerList.setModel(listModel);
-        customerList.setCellRenderer(new CustomerRenderer());
+        customerList.setCellRenderer(new TRenderer());
+    }
+
+    protected void setElements(List<T> elements) {
+        listModel.removeAllElements();
+        elements.forEach(listModel::addElement);
     }
 
     /**
@@ -65,20 +68,21 @@ public class CustomersPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<Customer> customerList;
+    private javax.swing.JList customerList;
     // End of variables declaration//GEN-END:variables
 
-    private static class CustomerRenderer extends DefaultListCellRenderer {
-
-        private static final String CUSTOMER_FORMAT = "%03d - %s";
-
+    private class TRenderer extends DefaultListCellRenderer {
         @Override
         public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component component = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-            if (component instanceof JLabel && value instanceof Customer) {
-                ((JLabel) component).setText(String.format(CUSTOMER_FORMAT, ((Customer) value).getId(), ((Customer) value).getName()));
+            if (component instanceof JLabel) {
+                ((JLabel) component).setText(renderer.getRenderString((T) value));
             }
             return component;
         }
+    }
+
+    public interface Renderer<T> {
+        String getRenderString(T object);
     }
 }

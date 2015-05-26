@@ -1,6 +1,7 @@
 package nl.windesheim.kbs1.tzt_pakketten.datamanager.http;
 
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route.TrainCourier;
 import retrofit.Callback;
 import retrofit.http.Body;
 import retrofit.http.GET;
@@ -17,6 +18,9 @@ public interface TztService {
 
     @GET("/customers.php")
     void getCustomers(Callback<List<Customer>> customers);
+
+    @GET("/traincouriers.php")
+    void getTrainCouriers(Callback<List<TrainCourier>> trainCouriers);
 
     class LoginRequest {
 

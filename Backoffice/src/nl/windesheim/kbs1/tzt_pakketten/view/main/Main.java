@@ -2,7 +2,7 @@ package nl.windesheim.kbs1.tzt_pakketten.view.main;
 
 /**
  *
- * @author Wilco Wolters
+ * @author Wilco
  */
 public class Main extends javax.swing.JFrame {
 
@@ -22,33 +22,32 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        customersPanel1 = new nl.windesheim.kbs1.tzt_pakketten.view.main.CustomersPanel();
+        javax.swing.JTabbedPane jTabbedPane2 = new javax.swing.JTabbedPane();
+        customerPanel1 = new nl.windesheim.kbs1.tzt_pakketten.view.main.CustomerPanel();
+        trainCourierPanel1 = new nl.windesheim.kbs1.tzt_pakketten.view.main.TrainCourierPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.LEFT);
-        jTabbedPane1.addTab("Klanten", customersPanel1);
+        jTabbedPane2.setTabPlacement(javax.swing.JTabbedPane.LEFT);
+        jTabbedPane2.addTab("Klanten", customerPanel1);
+        jTabbedPane2.addTab("Treinkoeriers", trainCourierPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
-
-        jTabbedPane1.getAccessibleContext().setAccessibleName("Klanten");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private nl.windesheim.kbs1.tzt_pakketten.view.main.CustomersPanel customersPanel1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private nl.windesheim.kbs1.tzt_pakketten.view.main.CustomerPanel customerPanel1;
+    private nl.windesheim.kbs1.tzt_pakketten.view.main.TrainCourierPanel trainCourierPanel1;
     // End of variables declaration//GEN-END:variables
 }
