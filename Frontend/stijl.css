@@ -1,4 +1,4 @@
-/* 
+/*
     Created on : 28-apr-2015, 18:54:12
     Author     : Mehmet
 */
@@ -16,16 +16,16 @@
     list-style-type: none;
     width: 180px;
 }
-#logo ul li {  
+#logo ul li {
     margin-left: 50px;
     margin-top: 25px;
 }
-#logo ul li a {  
+#logo ul li a {
     display: block;
-    padding: 0px;  
-    background-color: white;  
+    padding: 0px;
+    background-color: white;
     text-align: center;
-}  
+}
 
 #rcorners2 {
     position: absolute;
@@ -56,10 +56,10 @@
     font-size: 12pt;
     border-radius: 25px;
     border: 2px solid #8AC007;
-    padding: 10px; 
+    padding: 10px;
     float: left;
     width: 780px;
-    height: 400px; 
+    height: 400px;
 }
 
 #InlogForm {
@@ -154,10 +154,10 @@
     font-size: 12pt;
     border-radius: 25px;
     border: 2px solid #8AC007;
-    padding: 10px; 
+    padding: 10px;
     float: left;
     width: 780px;
-    height: 400px; 
+    height: 400px;
 }
 #middenRegistratieScherm {
     position: absolute;
@@ -167,10 +167,10 @@
     font-size: 12pt;
     border-radius: 25px;
     border: 2px solid #8AC007;
-    padding: 10px; 
+    padding: 10px;
     float: left;
     width: 780px;
-    height: 800px; 
+    height: 800px;
 }
 #middenOnzediensten {
     position: absolute;
@@ -182,26 +182,26 @@
     font-family: verdana;
     border-radius: 25px;
     border: 2px solid #8AC007;
-    padding: 10px; 
+    padding: 10px;
     float: left;
     width: 780px;
-    height: 800px; 
+    height: 800px;
 }
 #middenOnzediensten ul {
     list-style-type: none;
     width: 280px;
 }
-#middenOnzediensten ul li {  
+#middenOnzediensten ul li {
     margin-left: 50px;
     width: 280px;
 }
-#middenOnzediensten ul li a {  
+#middenOnzediensten ul li a {
     display: block;
-    padding: 0px;  
-    background-color: white;  
+    padding: 0px;
+    background-color: white;
     text-align: center;
     width: 280px;
-}  
+}
 
 #Inloggen{
     position: relative;
@@ -230,32 +230,59 @@
     top:150px;
 }
 
-#menu ul {  
+#Aanbiedenpakket{
+    position: relative;
+    width: 190px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    color: white;
+    background:#44699C;
+    left:150px;
+    top:150px;
+}
+#Aanbiedenpakket a:hover {
+    background-color: #5F94DC;
+}
+
+#Wijzigengegevens {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    background:#44699C;
+    color: white;
+    left:250px;
+    top:150px;
+}
+
+#menu ul {
     list-style-type: none;
     width: 175px;
-}  
+}
 
 #menu {
     position: absolute;
     top: 20%;
     left: 8%;
 }
-#menu ul li {  
+#menu ul li {
     display: inline;
-    margin: 5px; 
+    margin: 5px;
 }
-#menu ul li a {  
+#menu ul li a {
     display: block;
-    padding: 15px;  
-    background-color: #44699C;  
-    font-family: Verdana;  
+    padding: 15px;
+    background-color: #44699C;
+    font-family: Verdana;
     color: white;
     text-align: center;
-}  
-#menu ul li a:hover {  
-    /* Nieuw */  
-    background-color: #5F94DC;  
-} 
+}
+#menu ul li a:hover {
+    /* Nieuw */
+    background-color: #5F94DC;
+}
 #tekstWachtwoordVergeten {
     width : 20%;
     text-align : left;
