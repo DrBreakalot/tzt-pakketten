@@ -36,6 +36,19 @@ function insertCustomer($customer) {
     return $db->lastInsertId();
 }
 
+function insertTrainCourier($trainCourier) {
+    global $db;
+    $insertStatement = $db->prepare('INSERT INTO `traincourier` (`name`, `email`, `address`, `bank_account`, `password`) VALUES (:name, :email, :address, :bank_account, :password)');
+    $insertStatement->execute(array(
+        ":name" => $trainCourier["name"],
+        ":email" => $trainCourier["email"],
+        ":address" => $trainCourier["address"],
+        ":bank_account" => $trainCourier["bank_account"],
+        ":password" => $trainCourier["password"],
+    ));
+    return $db->lastInsertId();
+}
+
 function insertPackage($package) {
     global $db;
 
@@ -136,6 +149,21 @@ function selectCustomer($customerId) {
     return $user;
 }
 
+function selectTrainCourier($trainCourierId) {
+    global $db;
+    $courierStatement = $db->prepare('SELECT `id`, `name`, `email`, `bank_account`, `address` FROM `traincourier` WHERE `id` = :id');
+    $courierStatement->execute(array('id' => $trainCourierId));
+
+    $courier = $courierStatement->fetch(PDO::FETCH_ASSOC);
+
+    if ($courier['address'] != null) {
+        $courier['address'] = selectLocation($courier['address']);
+    }
+    $courier['sections'] = selectSectionsForTrainCourier($courier['id']);
+
+    return $courier;
+}
+
 function selectCustomers() {
     global $db;
     $customerStatement = $db->prepare("SELECT `id`, `name`, `email`, `is_business`, `kvk_number`, `address` FROM `customer`");
@@ -151,6 +179,42 @@ function selectCustomers() {
     }
 
     return $users;
+}
+
+function selectTrainCouriers() {
+    global $db;
+    $courierStatement = $db->prepare('SELECT `id`, `name`, `email`, `bank_account`, `address` FROM `traincourier`');
+    $courierStatement->execute();
+
+    $couriers = $courierStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($couriers as $key => $courier) {
+        if ($courier['address'] != null) {
+            $courier['address'] = selectLocation($courier['address']);
+        }
+        $courier['sections'] = selectSectionsForTrainCourier($courier['id']);
+        $couriers[$key] = $courier;
+    }
+
+    return $couriers;
+}
+
+function selectSectionsForTrainCourier($trainCourierId) {
+    global $db;
+    $sectionStatement = $db->prepare('SELECT `id`, `depature_time` `from_station`, `to_station`, `repeating` FROM `section` WHERE `courier` = :courier_id');
+    $sectionStatement->execute(array(
+        ':courier_id' => $trainCourierId,
+    ));
+    $sections = $sectionStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($sections as $key => $section) {
+        $section['from_station'] = selectLocation($section['from_station']);
+        $section['to_station'] = selectLocation($section['to_station']);
+
+        $sections[$key] = $section;
+    }
+
+    return $sections;
 }
 
 function selectLocation($locationId) {
