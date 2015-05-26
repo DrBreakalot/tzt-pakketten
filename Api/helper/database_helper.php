@@ -272,6 +272,23 @@ function selectPackage($packageId) {
     return $package;
 }
 
+function selectPackages($customerId) {
+    global $db;
+    $packageStatement = $db->prepare('SELECT * FROM `package` WHERE `customer_id` = :customer_id');
+    $packageStatement->execute(array(
+        ':customer_id' => $customerId,
+    ));
+    $packages = $packageStatement->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($packages as $key => $package) {
+        $route = selectRoute($package['route_id']);
+        $package['route'] = $route;
+        $packages[$key] = $package;
+    }
+
+    return $packages;
+}
+
 function selectRoute($routeId) {
     global $db;
     $routeStatement = $db->prepare('SELECT * FROM `route` WHERE `id` = :id');
