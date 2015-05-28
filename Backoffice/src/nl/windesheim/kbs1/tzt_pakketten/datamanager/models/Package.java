@@ -1,5 +1,7 @@
 package nl.windesheim.kbs1.tzt_pakketten.datamanager.models;
 
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route.Route;
+
 import java.time.Instant;
 
 public class Package {
@@ -12,6 +14,7 @@ public class Package {
     private Instant enterDate;
     private Money paidPrice;
     private PackageState state;
+    private Route route;
 
     public double getWidth() {
         return width;
@@ -45,7 +48,11 @@ public class Package {
         return state;
     }
 
-    public static enum PackageState {
+    public Route getRoute() {
+        return route;
+    }
+
+    public enum PackageState {
         PREPARING,
         ACCEPTED,
         CANCELED,

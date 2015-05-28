@@ -8,37 +8,35 @@ requireMethod(array("POST"));
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     decodePostBody();
-    
-    createCustomer($json);
+
+    createTrainCourier($json);
 }
 
-function createCustomer($json) {
+function createTrainCourier($json) {
     $requiredParameters = array(
         "name" => array("string"),
         "email" => array("string"),
         "password" => array("string"),
-        "is_business" => array("boolean"),
+        "bank_account" => array("string"),
         "address" => array("array", "NULL"),
-        "kvk_number" => array("string", "NULL"),
     );
 
     requirePostParameters($requiredParameters, $json, null);
 
     global $db;
-    $existingCustomerStatement = $db->prepare('SELECT `id` FROM `customer` WHERE `email` = :email');
-    $existingCustomerStatement->execute(array(':email' => $json['email']));
-    if ($existingCustomerStatement->rowCount() > 0) {
+    $existingCourierStatement = $db->prepare('SELECT `id` FROM `traincourier` WHERE `email` = :email');
+    $existingCourierStatement->execute(array(':email' => $json['email']));
+    if ($existingCourierStatement->rowCount() > 0) {
         http_response_code(409);
-        $existingCustomer = $existingCustomerStatement->fetch(PDO::FETCH_ASSOC);
-        echo json_encode(array("error" => "User already exists", "id" => $existingCustomer["id"]));
+        $existingCourier = $existingCourierStatement->fetch(PDO::FETCH_ASSOC);
+        echo json_encode(array("error" => "User already exists", "id" => $existingCourier["id"]));
         die;
     }
 
     $parameters = array();
     $parameters["name"] = $json["name"];
     $parameters["email"] = $json["email"];
-    $parameters["is_business"] =  $json["is_business"];
-    $parameters["kvk_number"] = getArrayValue("kvk_number", $json);
+    $parameters["bank_account"] = $json["bank_account"];
     $parameters["address"] = null;
     $parameters["password"] = createPassword($json["password"]);
 
@@ -68,10 +66,9 @@ function createCustomer($json) {
         $parameters["address"] = $addressId;
     }
 
-
-    $customerId = insertCustomer($parameters);
-    $insertedCustomer = selectCustomer($customerId);
+    $trainCourier = insertCustomer($parameters);
+    $insertedTrainCourier = selectCustomer($trainCourier);
 
     http_response_code(201);
-    echo json_encode($insertedCustomer);
+    echo json_encode($insertedTrainCourier);
 }

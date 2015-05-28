@@ -4,9 +4,14 @@ import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.location.AddressLocat
 
 public class Person {
 
+    private int id;
     private String name;
     private String email;
     private AddressLocation address;
+
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
