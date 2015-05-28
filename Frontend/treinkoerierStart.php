@@ -32,11 +32,11 @@
             <div id="midden">
 
 
-                <a href="inlogscherm.php">
-                    <input id="Inloggen" type="button" value="Inloggen" />
+                <a href="inlogSchermTreinkoerier.php">
+                    <input id="inloggenTreinkoerier" type="button" value="Inloggen Treinkoerier" />
                 </a>
-                <a href="Registratieformulier.php">
-                    <input id="Registreren" type="button" value="Registreren" />
+                <a href="registreerTreinkoerier.php">
+                    <input id="registrerenTreinkoerier" type="button" value="Registreren treinkoerier" />
                 </a>
                 </a>
 
@@ -55,3 +55,5 @@
 
     </body>
 </html>
+
+

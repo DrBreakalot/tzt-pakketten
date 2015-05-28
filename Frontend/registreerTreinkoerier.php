@@ -39,9 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
             </div>
             <span id="welkom">
-                <a href=""></a>
-                Registratieformulier
+                Registratieformulier Treinkoerier
             </span>
+
         </div>
         <div id="menu">  
             <ul>  
@@ -142,5 +142,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         </div>
     </body>
 </html>
+
+
 
 

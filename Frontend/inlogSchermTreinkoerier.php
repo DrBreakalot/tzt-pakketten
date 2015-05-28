@@ -28,6 +28,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
                 </ul>  
             </div>
+            <span id="welkom">
+                Inloggen Treinkoerier
+            </span>
         </div>
         <div id="menu">  
             <ul>  

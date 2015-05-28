@@ -12,7 +12,7 @@
         <div>
             <div id="logo">
                 <ul>  
-                    <li><a href="logo" title="logo"><IMG SRC="Logo TZT.png" ALT="logo TZT" WIDTH="200" HEIGHT="74"></a></li>  
+                    <li><a href="index.php" title="logo"><IMG SRC="Logo TZT.png" ALT="logo TZT" WIDTH="200" HEIGHT="74"></a></li>  
 
                 </ul>  
 
@@ -21,34 +21,27 @@
                 <a href=""></a>
                 Welkom username!
             </span>
-
-            <span id="rcorners2">
-                <a href=""><img src="magnifier_16.png" width="16" height="16"></a>
-                search
-            </span>
         </div>
         <div id="menu">  
             <ul>  
-                <li><a href="home" title="Home">Home</a></li>  
-                <li><a href="faq" title="FAQ">FAQ</a></li>  
+                <li><a href="index.php" title="Home">Home</a></li>  
+                <li><a href="onze diensten" title="Onze diensten">Onze diensten</a></li>  
                 <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>  
-                <li><a href="Uitloggen" title="Uitloggen">Uitloggen</a></li> 
+                <li><a href="contact.php" title="Contact">Contact</a></li>
+                <li><a href="treinkoerierStart.php" title="Treinkoerier">Treinkoerier</a></li>
             </ul>
-            <span id="midden">
+            <div id="midden">
 
-                hier komt een afbeelding
 
-                <form id="InlogForm" method="get" action="verwerk.php">
+                <a href="inlogscherm.php">
+                    <input id="pakketVersturen" type="button" value="Een pakket versturen" />
+                </a>
+                <a href="Registratieformulier.php">
+                    <input id="gegevensWijzigen" type="button" value="Mijn gegevens wijzigen" />
+                </a>
+                </a>
 
-                    Gebruikersnaam: <input type="text" name="voornaam"><br/>
-                    <br/>
-                    Wachtwoord: <input type="text" name="achternaam"><br/>
-                    <br/>
-                    Wachtwoord vergeten? Klik hier<br/>
-                    <br/>
-                    <input type="submit" value="Inloggen">
-                </form>
-            </span>
+            </div>
 
 
 

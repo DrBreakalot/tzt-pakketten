@@ -50,7 +50,7 @@
 
 #inlogscherm {
     position: absolute;
-    top: 10%;
+    top: 9%;
     left: 300px;
     background-color: whitesmoke;
     font-size: 12pt;
@@ -127,7 +127,7 @@
 #registreren2 {
     position: relative;
     left: 180px;
-    top: 10px;
+    top: 9px;
     width: 160px;
     height: 40px;
     font-size: 20px;
@@ -138,7 +138,7 @@
 #inloggen2 {
     position: relative;
     left: 180px;
-    top: 10px;
+    top: 9px;
     width: 160px;
     height: 40px;
     font-size: 20px;
@@ -148,7 +148,7 @@
 
 #midden {
     position: absolute;
-    top: 10%;
+    top: 9%;
     left: 300px;
     background-color: whitesmoke;
     font-size: 12pt;
@@ -161,7 +161,7 @@
 }
 #middenRegistratieScherm {
     position: absolute;
-    top: 10%;
+    top: 9%;
     left: 300px;
     background-color: whitesmoke;
     font-size: 12pt;
@@ -174,7 +174,7 @@
 }
 #middenOnzediensten {
     position: absolute;
-    top: 10%;
+    top: 9%;
     left: 300px;
     background-color: whitesmoke;
     font-size: 12pt;
@@ -185,24 +185,8 @@
     padding: 10px; 
     float: left;
     width: 780px;
-    height: 800px; 
+    height: 500px; 
 }
-#middenOnzediensten ul {
-    list-style-type: none;
-    width: 280px;
-}
-#middenOnzediensten ul li {  
-    margin-left: 50px;
-    width: 280px;
-}
-#middenOnzediensten ul li a {  
-    display: block;
-    padding: 0px;  
-    background-color: white;  
-    text-align: center;
-    width: 280px;
-}  
-
 #Inloggen{
     position: relative;
     width: 160px;
@@ -217,7 +201,6 @@
 #Inloggen a:hover {
     background-color: #5F94DC;
 }
-
 #Registreren {
     position: relative;
     width: 160px;
@@ -229,12 +212,10 @@
     left:250px;
     top:150px;
 }
-
 #menu ul {  
     list-style-type: none;
     width: 175px;
 }  
-
 #menu {
     position: absolute;
     top: 20%;
@@ -321,4 +302,132 @@
     left:150px;
     top:50px;
 }
+#pakketVersturen {
+    position: relative;
+    width: 260px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    color: white;
+    background:#44699C;
+    left:80px;
+    top:150px;
+}
+#gegevensWijzigen {
+    position: relative;
+    width: 260px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    background:#44699C;
+    color: white;
+    left:170px;
+    top:150px;
+}
+#middenContact {
+    position: absolute;
+    top: 9%;
+    left: 300px;
+    background-color: whitesmoke;
+    font-size: 12pt;
+    border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 10px; 
+    float: left;
+    width: 780px;
+    height: 400px; 
+}
+#contactGegevens {
+    position: relative;
+    width: 260px;
+    height: 40px;
+    font-size: 20px;
+    font-family: Verdana;
+    color: #44699C;
+    font-weight: bold;
+    left:80px;
+    top:50px;
+}
+#pakketdiensten {
+    position: relative;
+    width: 260px;
+    height: 40px;
+    font-size: 20px;
+    font-family: Verdana;
+    color: #44699C;
+    font-weight: bold;
+    left:80px;
+    top:30px;
+}
+#pakketdienstenTekst {
+    position: relative;
+    width: 600px;
+    font-size: 16px;
+    font-family: Verdana;
+    color: black;
+    left: 80px;
+    top: 15px;
+}
+#extraVerzekering {
+    position: relative;
+    width: 260px;
+    font-size: 20px;
+    font-family: Verdana;
+    color: #44699C;
+    font-weight: bold;
+    left:80px;
+    top:10px;
+}
+#extraVerzekeringTekst {
+    position: relative;
+    width: 600px;
+    font-size: 16px;
+    font-family: Verdana;
+    color: black;
+    left: 80px;
+    top: 0px;
+}
+#hoeWerktHet {
+    position: relative;
+    width: 260px;
+    height: 40px;
+    font-size: 20px;
+    font-family: Verdana;
+    color: #44699C;
+    font-weight: bold;
+    left:80px;
+    top:0px;
+}
+#hoeWerktHetTekst {
+    position: relative;
+    width: 600px;
+    font-size: 16px;
+    font-family: Verdana;
+    color: black;
+    left: 80px;
+    top: 0px;
+}
+#inloggenTreinkoerier {
+    position: relative;
+    width: 260px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    color: white;
+    background:#44699C;
+    left:80px;
+    top:150px;
+}
+#registrerenTreinkoerier{
+    position: relative;
+    width: 260px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    background:#44699C;
+    color: white;
+    left:170px;
+    top:150px;
+}
+
 
