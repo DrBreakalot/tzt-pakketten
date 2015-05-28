@@ -264,5 +264,61 @@
     color: black;
     font-weight: bold;
 }
-
+#controleer {
+    position: relative;
+    left: 80px;
+    top: 10px;
+    font-size: 25px;
+    color: red;
+}
+#akkoordgegevens {
+    position: relative;
+    left: 180px;
+    top: 200px;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    background: #44699C;
+    color: white;
+}
+#foutmelding {
+    position: relative;
+    left: 70px;
+    width : 20%;
+    //text-align : left;
+    font-size: 20px;
+    font-family: Verdana bold;
+    color: red;
+    font-weight: bold;
+}
+#naarInlogscherm {
+    position: relative;
+    left: 180px;
+    top: 10px;
+    width: 160px;
+    height: 40px;
+    font-size: 20px;
+    background: #44699C;
+    color: white;
+}
+#registratieGereed {
+    position: relative;
+    top: 30%;
+    left: 10%;
+    background-color: whitesmoke;
+    font-size: 20pt;
+    width: 480px;
+    height: 200px;
+}
+#InloggenRegistratieGereed {
+    position: relative;
+    width: 160px;
+    height: 40px;
+    font-size: 16px;
+    font-family: Verdana;
+    color: white;
+    background:#44699C;
+    left:150px;
+    top:50px;
+}
 
