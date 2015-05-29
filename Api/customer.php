@@ -4,9 +4,17 @@ require_once 'helper/general_helper.php';
 require_once 'helper/database_helper.php';
 require_once 'helper/auth_helper.php';
 
-requireMethod(array("POST"));
+requireMethod(array("GET", "POST"));
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === "GET") {
+    requireUserType(array("BackOffice", "Customer"));
+    if ($user['type'] === 'BackOffice') {
+        requireGetParameters(array('customer_id' => array('string')));
+        echo json_encode(selectCustomer($_GET['customer_id']));
+    } else {
+        echo json_encode(selectCustomer($user['id']));
+    }
+} else if ($_SERVER['REQUEST_METHOD'] === "POST") {
     decodePostBody();
     
     createCustomer($json);
