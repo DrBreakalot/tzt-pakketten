@@ -33,10 +33,10 @@
             <div id="midden">
 
 
-                <a href="inlogscherm.php">
+                <a href="aanbiedenpakket.php">
                     <input id="pakketVersturen" type="button" value="Een pakket versturen" />
                 </a>
-                <a href="Registratieformulier.php">
+                <a href="wijzigenGegevensKlant.php">
                     <input id="gegevensWijzigen" type="button" value="Mijn gegevens wijzigen" />
                 </a>
                 </a>

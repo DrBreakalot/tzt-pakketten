@@ -183,13 +183,9 @@
     border-radius: 25px;
     border: 2px solid #8AC007;
     padding: 10px;
-    float: left;
     width: 780px;
-<<<<<<< HEAD
+    float: left;
     height: 500px; 
-}
-=======
-    height: 800px;
 }
 #middenOnzediensten ul {
     list-style-type: none;
@@ -206,8 +202,6 @@
     text-align: center;
     width: 280px;
 }
-
->>>>>>> cebed5b40402bc46af25660447d177ccda7e4fd0
 #Inloggen{
     position: relative;
     width: 160px;
@@ -233,13 +227,10 @@
     left:250px;
     top:150px;
 }
-<<<<<<< HEAD
 #menu ul {  
     list-style-type: none;
     width: 175px;
 }  
-=======
-
 #Aanbiedenpakket{
     position: relative;
     width: 190px;
@@ -254,7 +245,6 @@
 #Aanbiedenpakket a:hover {
     background-color: #5F94DC;
 }
-
 #Wijzigengegevens {
     position: relative;
     width: 200px;
@@ -266,13 +256,10 @@
     left:250px;
     top:150px;
 }
-
 #menu ul {
     list-style-type: none;
     width: 175px;
 }
-
->>>>>>> cebed5b40402bc46af25660447d177ccda7e4fd0
 #menu {
     position: absolute;
     top: 20%;

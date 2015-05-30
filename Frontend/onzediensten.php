@@ -38,9 +38,9 @@
                 <span id="hoeWerktHet">Uw transport in 5 minuten geregeld!</span><br/><br/>
                 <div id="hoeWerktHetTekst">
                     Stap 1: Login of registreer u als nieuwe gebruiker<br/><br/>
-                    Stap 1: Kies voor "Een pakket aanbieden"<br/><br/>
-                    Stap 1: Vul uw pakket- en aflevergegevens in.<br/><br/>
-                    Stap 1: Als u akkoord bent met de prijs is uw transport geregeld.
+                    Stap 2: Kies voor "Een pakket aanbieden"<br/><br/>
+                    Stap 3: Vul uw pakket- en aflevergegevens in.<br/><br/>
+                    Stap 4: Als u akkoord bent met de prijs is uw transport geregeld.
                 </div>
             </div>
 

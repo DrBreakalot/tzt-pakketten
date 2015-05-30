@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stijl.css" />
-        <title>Home TZT</title>
+        <title>Gegevens wijzigen</title>
     </head>
     <body>
         <div>
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
             </div>
             <span id="welkom">
-                Registratieformulier Treinkoerier
+                Vul hieronder uw actuele gegevens in en druk op verzenden
             </span>
 
         </div>
@@ -135,13 +135,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
-                    <input id="registreren2" type="submit" value="Registreer!">
+                    <input id="registreren2" type="submit" value="Verzenden">
                 </form>
             </div>
 
         </div>
     </body>
 </html>
+
+
+
+
 
 
 

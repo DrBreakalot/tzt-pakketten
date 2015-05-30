@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         ?><span id="foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                     </span><?php } ?><br/><br/>
 
-                    <span id="tekstWachtwoordVergeten" href="" method="get" action="verwerk1.php">
+                    <span id="tekstWachtwoordVergeten" href="">
                         Wachtwoord vergeten? Klik hier</span><br/>
                     <br/>
                     <input id="inloggen2" type="submit" value="Inloggen">
