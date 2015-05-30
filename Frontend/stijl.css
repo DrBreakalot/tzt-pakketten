@@ -183,9 +183,9 @@
     border-radius: 25px;
     border: 2px solid #8AC007;
     padding: 10px;
-    float: left;
     width: 780px;
-    height: 800px;
+    float: left;
+    height: 500px; 
 }
 #middenOnzediensten ul {
     list-style-type: none;
@@ -248,7 +248,6 @@
 #Aanbiedenpakket a:hover {
     background-color: #5F94DC;
 }
-
 #Wijzigengegevens {
     position: relative;
     width: 200px;

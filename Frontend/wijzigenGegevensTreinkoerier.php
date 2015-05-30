@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         && isset($_POST["gebruikersnaam"]) && (strlen($_POST["gebruikersnaam"]) > 0)
                         && isset($_POST["wachtwoord"]) && (strlen($_POST["wachtwoord"]) > 0)){
         
-        header('Location: registreer.php'); /* Stuur de browser naar registreer.php */
+        header('Location: http://localhost:8080/Frontend/registreer.php'); /* Stuur de browser naar registreer.php */  
   
      }
 }
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="stijl.css" />
-        <title>Home TZT</title>
+        <title>Gegevens wijzigen</title>
     </head>
     <body>
         <div>
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
             </div>
             <span id="welkom">
-                Registratieformulier Treinkoerier
+                Vul hieronder uw actuele gegevens in en druk op verzenden
             </span>
 
         </div>
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["voornaam"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["voornaam"])|| (strlen($_POST["voornaam"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                             
                     <label for "achternaam">Achternaam</label>
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["achternaam"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["achternaam"])|| (strlen($_POST["achternaam"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
                     <label for "straat">Straat</label>
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["straat"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["straat"])|| (strlen($_POST["straat"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
                     <label for "huisnummer">Huisnummer</label>
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["huisnummer"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["huisnummer"])|| (strlen($_POST["huisnummer"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
                     <label for "postcode">Postcode</label>
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["postcode"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["postcode"])|| (strlen($_POST["postcode"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
                     <label for "woonplaats">Woonplaats</label>
@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["woonplaats"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["woonplaats"])|| (strlen($_POST["woonplaats"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
                     <label for "e-mailadres">E-mailadres</label>
@@ -108,7 +108,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["e-mailadres"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["e-mailadres"])|| (strlen($_POST["e-mailadres"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
                     <label for "telefoonnummer">Telefoonnummer</label>
@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["telefoonnummer"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["telefoonnummer"])|| (strlen($_POST["telefoonnummer"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
                     <label for "gebruikersnaam">Gebruikersnaam</label>
@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["gebruikersnaam"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["gebruikersnaam"])|| (strlen($_POST["gebruikersnaam"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
                     <label for "wachtwoord">Wachtwoord</label>
@@ -132,16 +132,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                             print_r($_POST["wachtwoord"]);
                         }?>">
                         <?php if ($heeftGepost == TRUE && (!isset($_POST["wachtwoord"])|| (strlen($_POST["wachtwoord"]) == 0))){
-                            ?><span id = "foutmelding"><?php print ("Dit is een verplicht veld!") ?>
+                            ?><span id = "foutmelding"><?php print ("Dit is een verplichte veld!") ?>
                             </span><?php } ?> <br/><br/>
                     
-                    <input id="registreren2" type="submit" value="Registreer!">
+                    <input id="registreren2" type="submit" value="Verzenden">
                 </form>
             </div>
 
         </div>
     </body>
 </html>
+
+
+
+
+
+
 
 
 
