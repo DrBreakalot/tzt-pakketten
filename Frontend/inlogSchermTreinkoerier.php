@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
      if (
                        isset($_POST["gebruikersnaam"]) && (strlen($_POST["gebruikersnaam"]) > 0)
                        && isset($_POST["wachtwoord"]) && (strlen($_POST["wachtwoord"]) > 0)){
-          header('Location: http://localhost:8080/Frontend/ingelogdeUser.php'); /* Stuur de browser naar ingelogdeUser.php */  
+          header('Location: ingelogdeUser.php'); /* Stuur de browser naar ingelogdeUser.php */
       }
 }
 ?>
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             </ul>
             <span id="inlogscherm">
 
-                <form id="InlogForm" method="post" action="inlogscherm.php">
+                <form id="InlogForm" method="post" action="inlogschermtreinkoerier.php">
                     
                     <label for "gebruikersnaam">Gebruikersnaam:</label>
                     <input type="text" name="gebruikersnaam" value="<?php if ($heeftGedrukt == TRUE) {

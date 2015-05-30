@@ -44,6 +44,7 @@ function fillUserData() {
 
                 if ($user !== null) {
                     $user["type"] = $domain;
+                    unset($user['password']);
                 }
             }
         }

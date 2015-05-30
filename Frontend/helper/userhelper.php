@@ -11,7 +11,7 @@ function getUser() {
         return null;
     }
 
-    $url = $TZT_API_URL . 'customer.php';
+    $url = $TZT_API_URL . 'user.php';
 
     $response = get($url, $token);
 

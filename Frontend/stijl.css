@@ -3,7 +3,7 @@
     Author     : Mehmet
 */
 
-#logo { width: 300px;
+#logo {
         height: 150px;
         position: absolute;
         top: 2%;
@@ -185,10 +185,6 @@
     padding: 10px;
     float: left;
     width: 780px;
-<<<<<<< HEAD
-    height: 500px; 
-}
-=======
     height: 800px;
 }
 #middenOnzediensten ul {
@@ -207,7 +203,6 @@
     width: 280px;
 }
 
->>>>>>> cebed5b40402bc46af25660447d177ccda7e4fd0
 #Inloggen{
     position: relative;
     width: 160px;
@@ -233,12 +228,11 @@
     left:250px;
     top:150px;
 }
-<<<<<<< HEAD
+
 #menu ul {  
     list-style-type: none;
     width: 175px;
-}  
-=======
+}
 
 #Aanbiedenpakket{
     position: relative;
@@ -267,12 +261,6 @@
     top:150px;
 }
 
-#menu ul {
-    list-style-type: none;
-    width: 175px;
-}
-
->>>>>>> cebed5b40402bc46af25660447d177ccda7e4fd0
 #menu {
     position: absolute;
     top: 20%;
