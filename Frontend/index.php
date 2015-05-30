@@ -1,3 +1,10 @@
+<?php
+require_once 'helper/userhelper.php';
+if (getUser()) {
+    header('Location: ingelogdeUser.php');
+}
+?>
+
 <!DOCTYPE html>
 <html>
 

@@ -4,11 +4,19 @@ require_once 'helper/general_helper.php';
 require_once 'helper/database_helper.php';
 require_once 'helper/auth_helper.php';
 
-requireMethod(array("POST"));
+requireMethod(array("GET", "POST"));
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === "GET") {
+    requireUserType(array("BackOffice", "Customer"));
+    if ($user['type'] === 'BackOffice') {
+        requireGetParameters(array('customer_id' => array('string')));
+        echo json_encode(selectCustomer($_GET['customer_id']));
+    } else {
+        echo json_encode(selectCustomer($user['id']));
+    }
+} else if ($_SERVER['REQUEST_METHOD'] === "POST") {
     decodePostBody();
-    
+
     createCustomer($json);
 }
 
@@ -54,15 +62,15 @@ function createCustomer($json) {
             "postal_code" => array("string", "NULL"),
         );
 
-        requirePostParameters($json["address"], $requiredAddressParameters);
+        requirePostParameters($requiredAddressParameters, $json["address"]);
         $address = array();
-        $address["name"] = $json["address"]["name"];
-        $address["latitude"] = $json["address"]["latitude"];
-        $address["longitude"] = $json["address"]["longitude"];
-        $address["address"] = $json["address"]["address"];
-        $address["city"] = $json["address"]["city"];
-        $address["postal_code"] = $json["address"]["postal_code"];
-        $address["isStation"] = false;
+        $address["name"] = getArrayValue('name', $json['address']);
+        $address["latitude"] = getArrayValue('latitude', $json['address']);
+        $address["longitude"] = getArrayValue('longitude', $json['address']);
+        $address["address"] = getArrayValue('address', $json['address']);
+        $address["city"] = getArrayValue('city', $json['address']);
+        $address["postal_code"] = getArrayValue('postal_code', $json['address']);
+        $address["is_station"] = false;
 
         $addressId = insertLocation($address);
         $parameters["address"] = $addressId;

@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         print_r($_POST["gebruikersnaam"]);
                     }?>">
                     <?php if ($heeftGedrukt == TRUE && (!isset($_POST["gebruikersnaam"]) || (strlen($_POST["gebruikersnaam"]) == 0))) {
-                        ?><span id="foutmelding"><?php print ("Dit is een verplichte veld!") ?>
+                        ?><span id="foutmelding"><?php print ("Dit is een verplicht veld!") ?>
                     </span><?php } ?> <br/><br/>
                     
                     <label for "wachtwoord">Wachtwoord:</label>
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         print_r($_POST["wachtwoord"]);
                     }?>">
                     <?php if ($heeftGedrukt == TRUE && (!isset ($_POST["wachtwoord"]) || (strlen($_POST["wachtwoord"]) == 0))) {
-                        ?><span id="foutmelding"><?php print ("Dit is een verplichte veld!") ?>
+                        ?><span id="foutmelding"><?php print ("Dit is een verplicht veld!") ?>
                     </span><?php } ?><br/><br/>
 
                     <span id="tekstWachtwoordVergeten" href="">
