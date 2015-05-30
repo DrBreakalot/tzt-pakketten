@@ -64,19 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         print_r($_POST["wachtwoord"]);
                     } ?>">
                     <?php if ($heeftGedrukt == TRUE && (!isset ($_POST["wachtwoord"]) || (strlen($_POST["wachtwoord"]) == 0))) {
-<<<<<<< HEAD
-                        ?><span id="foutmelding"><?php print ("Dit is een verplichte veld!") ?>
-                    </span><?php } ?><br/><br/>
 
-                    <span id="tekstWachtwoordVergeten" href="">
-=======
                         ?><span id="foutmelding"><?php print ("Dit is een verplicht veld!") ?>
                         </span><?php } ?><br/><br/>
                     <?php if ($foutWachtwoord) {
                         echo '<span id = "foutwachtwoord" > Dit is een onbekende combinatie van gebruikersnaam en wachtwoord </span ><br />';
                     } ?>
                     <span id="tekstWachtwoordVergeten" href="" method="get" action="verwerk1.php">
->>>>>>> 96014fa6db593bdb064a8ea0f78602a42f12ff5b
                         Wachtwoord vergeten? Klik hier</span><br/>
                     <br/>
                     <input id="inloggen2" type="submit" value="Inloggen">

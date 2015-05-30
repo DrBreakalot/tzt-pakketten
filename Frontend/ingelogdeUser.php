@@ -42,11 +42,6 @@ $user = requireUser();
                 <li><a href="ingelogdeUser.php?loguit=true" title="Uitloggen">Uitloggen</a></li>
             </ul>
             <div id="midden">
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 96014fa6db593bdb064a8ea0f78602a42f12ff5b
                 <a href="aanbiedenpakket.php">
                     <input id="pakketVersturen" type="button" value="Een pakket versturen" />
                 </a>
