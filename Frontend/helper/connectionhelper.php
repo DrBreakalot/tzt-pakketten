@@ -18,12 +18,16 @@ function post($url, $body, $token = null) {
     ));
 
     $response = curl_exec($ch);
-
     $responseData = json_decode($response, true);
-    return array(
+
+    $result = array(
         'status' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
         'body' => $responseData,
     );
+
+    curl_close($ch);
+
+    return $result;
 }
 
 function get($url, $token = null) {
@@ -42,8 +46,13 @@ function get($url, $token = null) {
     $response = curl_exec($ch);
 
     $responseData = json_decode($response, true);
-    return array(
+
+    $result = array(
         'status' => curl_getinfo($ch, CURLINFO_HTTP_CODE),
         'body' => $responseData,
     );
+
+    curl_close($ch);
+
+    return $result;
 }
