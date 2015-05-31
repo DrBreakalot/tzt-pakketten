@@ -38,13 +38,16 @@ $user = requireUser();
                 <li><a href="onze diensten" title="Onze diensten">Onze diensten</a></li>
                 <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>
                 <li><a href="contact.php" title="Contact">Contact</a></li>
-                <li><a href="treinkoerierStart.php" title="Treinkoerier">Treinkoerier</a></li>
                 <li><a href="ingelogdeUser.php?loguit=true" title="Uitloggen">Uitloggen</a></li>
             </ul>
             <div id="midden">
-                <a href="aanbiedenpakket.php">
+                <?php
+                if ($user['type'] === 'Customer') {
+                    echo '<a href="aanbiedenpakket.php">
                     <input id="pakketVersturen" type="button" value="Een pakket versturen" />
-                </a>
+                </a>';
+                }
+                ?>
                 <a href="wijzigenGegevensKlant.php">
                     <input id="gegevensWijzigen" type="button" value="Mijn gegevens wijzigen" />
                 </a>
