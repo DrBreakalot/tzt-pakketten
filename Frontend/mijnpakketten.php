@@ -1,5 +1,6 @@
 <?php
 require_once 'helper/authhelper.php';
+require_once('helper/userhelper.php');
 
 $user = requireUser();
 $packages = getPackages();
@@ -28,13 +29,9 @@ $packages = getPackages();
         </div>
         <div id="menu">
             <ul>
-                <li><a href="index.php" title="Home">Home</a></li>
-                <li><a href="onze diensten" title="Onze diensten">Onze diensten</a></li>
-                <li><a href="mijnpakketten.php" title="Mijn Pakket">Mijn Pakket</a></li>
-                <li><a href="contact.php" title="Contact">Contact</a></li>
-                <li><a href="ingelogdeUser.php?loguit=true" title="Uitloggen">Uitloggen</a></li>
+                <?php echo getMenu(); ?>
             </ul>
-            <div id="middenpakketten">
+            <div class="midden" id="middenpakketten">
                 <table>
                     <tr>
                         <th>Aangeboden op</th>

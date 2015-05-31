@@ -1,3 +1,7 @@
+<?php
+require_once('helper/userhelper.php');
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,15 +24,10 @@
             </span>
         </div>
         <div id="menu">  
-            <ul>  
-                <li><a href="index.php" title="Home">Home</a></li>  
-                <li><a href="onze diensten" title="Onze diensten">Onze diensten</a></li>  
-                <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>  
-                <li><a href="contact.php" title="Contact">Contact</a></li>
-                <li><a href="treinkoerierStart.php" title="Treinkoerier">Treinkoerier</a></li>
-
+            <ul>
+                <?php echo getMenu(); ?>
             </ul>
-            <div id="midden">
+            <div class="midden">
                 <div id="registratieGereed">
                 Uw registratie is klaar! U kunt nu <a href="inlogscherm.php" title="inlogscherm">inloggen!</a>
                 <!--<link id="naarInlogscherm" type="submit" value="Inloggen!"/>-->

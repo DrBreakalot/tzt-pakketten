@@ -1,4 +1,6 @@
 <?php
+require_once('helper/userhelper.php');
+
 $heeftGepost = FALSE;
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
      $heeftGepost = TRUE;
@@ -44,16 +46,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
         </div>
         <div id="menu">  
-            <ul>  
-                <li><a href="index.php" title="Home">Home</a></li>  
-                <li><a href="onze diensten" title="Onze diensten">Onze diensten</a></li>  
-                <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>  
-                <li><a href="contact.php" title="Contact">Contact</a></li>
-                <li><a href="treinkoerierStart.php" title="Treinkoerier">Treinkoerier</a></li>
-
+            <ul>
+                <?php echo getMenu(); ?>
             </ul>
-            <div id="middenRegistratieScherm">
-                <form id="registratieForm" method="post" action="registratieformulier.php">
+            <div class="midden" id="middenRegistratieScherm">
+                <form id="registratieForm" method="post" action="Registratieformulier.php">
                     
                     <label for "voornaam">Naam</label>
                     <input type="text" name="voornaam" value="<?php if ($heeftGepost == TRUE) {

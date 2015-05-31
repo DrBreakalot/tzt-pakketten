@@ -29,16 +29,10 @@ if (getUser()) {
             </span>
         </div>
         <div id="menu">  
-            <ul>  
-                <li><a href="index.php" title="Home">Home</a></li>  
-                <li><a href="onzediensten.php" title="Onze diensten">Onze diensten</a></li>  
-                <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>  
-                <li><a href="contact.php" title="Contact">Contact</a></li> 
-                <li><a href="treinkoerierStart.php" title="Treinkoerier">Treinkoerier</a></li>
+            <ul>
+                <?php echo getMenu(); ?>
             </ul>
-            <div id="midden">
-
-
+            <div class="midden">
                 <a href="inlogscherm.php">
                     <input id="Inloggen" type="button" value="Inloggen" />
                 </a>

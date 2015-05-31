@@ -1,7 +1,20 @@
-/*
-    Created on : 28-apr-2015, 18:54:12
-    Author     : Mehmet
-*/
+body {
+    font-family: Verdana, sans-serif;
+}
+
+.midden {
+    position: absolute;
+    top: 9%;
+    left: 300px;
+    background-color: whitesmoke;
+    font-size: 12pt;
+    border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 10px;
+    float: left;
+    width: 780px;
+    height: 400px;
+}
 
 #logo {
     height: 150px;
@@ -25,7 +38,7 @@
 
 #logo ul li a {
     display: block;
-    padding: 0px;
+    padding: 0;
     background-color: white;
     text-align: center;
 }
@@ -52,16 +65,6 @@
 }
 
 #inlogscherm {
-    position: absolute;
-    top: 9%;
-    left: 300px;
-    background-color: whitesmoke;
-    font-size: 12pt;
-    border-radius: 25px;
-    border: 2px solid #8AC007;
-    padding: 10px;
-    float: left;
-    width: 780px;
     height: 400px;
 }
 
@@ -75,14 +78,13 @@
 #InlogForm input {
     position: relative;
     left: 20px;
-    top: 0px;
+    top: 0;
 }
 
 #InlogForm label {
     width: 20%;
     text-align: left;
     font-size: 20px;
-    font-family: Verdana bold;
     color: black;
     font-weight: bold;
 }
@@ -106,14 +108,13 @@
 #registratieForm input {
     position: relative;
     left: 20px;
-    top: 0px;
+    top: 0;
 }
 
 #registratieForm label {
     width: 20%;
     text-align: left;
     font-size: 20px;
-    font-family: Verdana bold;
     color: black;
     font-weight: bold;
 }
@@ -149,45 +150,11 @@
     color: white;
 }
 
-#midden {
-    position: absolute;
-    top: 9%;
-    left: 300px;
-    background-color: whitesmoke;
-    font-size: 12pt;
-    border-radius: 25px;
-    border: 2px solid #8AC007;
-    padding: 10px;
-    float: left;
-    width: 780px;
-    height: 400px;
-}
-
 #middenRegistratieScherm {
-    position: absolute;
-    top: 9%;
-    left: 300px;
-    background-color: whitesmoke;
-    font-size: 12pt;
-    border-radius: 25px;
-    border: 2px solid #8AC007;
-    padding: 10px;
-    float: left;
-    width: 780px;
     height: 800px;
 }
 
 #middenpakketten {
-    position: absolute;
-    top: 9%;
-    left: 300px;
-    background-color: whitesmoke;
-    font-size: 12pt;
-    border-radius: 25px;
-    border: 2px solid #8AC007;
-    padding: 10px;
-    float: left;
-    width: 780px;
     height: 600px;
 }
 
@@ -213,18 +180,6 @@
 }
 
 #middenOnzediensten {
-    position: absolute;
-    top: 9%;
-    left: 300px;
-    background-color: whitesmoke;
-    font-size: 12pt;
-    color: black;
-    font-family: verdana;
-    border-radius: 25px;
-    border: 2px solid #8AC007;
-    padding: 10px;
-    width: 780px;
-    float: left;
     height: 500px;
 }
 
@@ -240,7 +195,7 @@
 
 #middenOnzediensten ul li a {
     display: block;
-    padding: 0px;
+    padding: 0;
     background-color: white;
     text-align: center;
     width: 280px;
@@ -251,7 +206,6 @@
     width: 160px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     color: white;
     background: #44699C;
     left: 150px;
@@ -267,7 +221,6 @@
     width: 160px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     background: #44699C;
     color: white;
     left: 250px;
@@ -284,7 +237,6 @@
     width: 190px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     color: white;
     background: #44699C;
     left: 150px;
@@ -300,7 +252,6 @@
     width: 200px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     background: #44699C;
     color: white;
     left: 250px;
@@ -322,7 +273,6 @@
     display: block;
     padding: 15px;
     background-color: #44699C;
-    font-family: Verdana;
     color: white;
     text-align: center;
 }
@@ -336,7 +286,6 @@
     width: 20%;
     text-align: left;
     font-size: 20px;
-    font-family: Verdana bold;
     color: black;
     font-weight: bold;
 }
@@ -364,9 +313,8 @@
     position: relative;
     left: 70px;
     width: 20%;
-/ / text-align : left;
+    text-align : left;
     font-size: 20px;
-    font-family: Verdana bold;
     color: red;
     font-weight: bold;
 }
@@ -397,7 +345,6 @@
     width: 160px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     color: white;
     background: #44699C;
     left: 150px;
@@ -409,7 +356,6 @@
     width: 260px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     color: white;
     background: #44699C;
     left: 80px;
@@ -421,7 +367,6 @@
     width: 260px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     background: #44699C;
     color: white;
     left: 170px;
@@ -429,17 +374,6 @@
 }
 
 #middenContact {
-    position: absolute;
-    top: 9%;
-    left: 300px;
-    background-color: whitesmoke;
-    font-size: 12pt;
-    border-radius: 25px;
-    border: 2px solid #8AC007;
-    padding: 10px;
-    float: left;
-    width: 780px;
-    height: 400px;
 }
 
 #contactGegevens {
@@ -447,7 +381,6 @@
     width: 260px;
     height: 40px;
     font-size: 20px;
-    font-family: Verdana;
     color: #44699C;
     font-weight: bold;
     left: 80px;
@@ -459,7 +392,6 @@
     width: 260px;
     height: 40px;
     font-size: 20px;
-    font-family: Verdana;
     color: #44699C;
     font-weight: bold;
     left: 80px;
@@ -470,7 +402,6 @@
     position: relative;
     width: 600px;
     font-size: 16px;
-    font-family: Verdana;
     color: black;
     left: 80px;
     top: 15px;
@@ -480,7 +411,6 @@
     position: relative;
     width: 260px;
     font-size: 20px;
-    font-family: Verdana;
     color: #44699C;
     font-weight: bold;
     left: 80px;
@@ -491,10 +421,9 @@
     position: relative;
     width: 600px;
     font-size: 16px;
-    font-family: Verdana;
     color: black;
     left: 80px;
-    top: 0px;
+    top: 0;
 }
 
 #hoeWerktHet {
@@ -502,21 +431,19 @@
     width: 260px;
     height: 40px;
     font-size: 20px;
-    font-family: Verdana;
     color: #44699C;
     font-weight: bold;
     left: 80px;
-    top: 0px;
+    top: 0;
 }
 
 #hoeWerktHetTekst {
     position: relative;
     width: 600px;
     font-size: 16px;
-    font-family: Verdana;
     color: black;
     left: 80px;
-    top: 0px;
+    top: 0;
 }
 
 #inloggenTreinkoerier {
@@ -524,7 +451,6 @@
     width: 260px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     color: white;
     background: #44699C;
     left: 80px;
@@ -536,7 +462,6 @@
     width: 260px;
     height: 40px;
     font-size: 16px;
-    font-family: Verdana;
     background: #44699C;
     color: white;
     left: 170px;
