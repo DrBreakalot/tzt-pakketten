@@ -3,9 +3,6 @@ package nl.windesheim.kbs1.tzt_pakketten.view.overview;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.DataManager;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route.TrainCourier;
 
-/**
- * Created by Wilco on 26-5-2015.
- */
 public class TrainCourierPanel extends ListPanel<TrainCourier> {
 
     private static final String FORMAT = "%03d - %s";

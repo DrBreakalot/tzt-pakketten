@@ -10,9 +10,6 @@ import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
 
 import java.lang.reflect.Type;
 
-/**
- * Created by Dr Breakalot on 25-5-2015.
- */
 public class CustomerDeserializer implements JsonDeserializer<Customer> {
     @Override
     public Customer deserialize(JsonElement jsonElement, Type type, JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {

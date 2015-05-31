@@ -1,8 +1,5 @@
 package nl.windesheim.kbs1.tzt_pakketten;
 
-/**
- * Created by Wilco on 12-5-2015.
- */
 public interface Config {
 
     String API_URL = "http://localhost/api";

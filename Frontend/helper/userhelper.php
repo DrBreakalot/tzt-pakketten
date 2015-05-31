@@ -39,3 +39,22 @@ function registerCustomer($name, $email, $password, $address = null, $isBusiness
 
     return $response;
 }
+
+function getPackages() {
+    global $TZT_API_URL;
+
+    $token = getTokenFromCookie();
+    if (!$token) {
+        return null;
+    }
+
+    $url = $TZT_API_URL . 'packages.php';
+
+    $response = get($url, $token);
+
+    if ($response['status'] === 200) {
+        return $response['body'];
+    } else {
+        return null;
+    }
+}

@@ -4,22 +4,25 @@
 */
 
 #logo {
-        height: 150px;
-        position: absolute;
-        top: 2%;
-        left: 4%;
-        background: white;
-        float: left;
-        width: 750px;
+    height: 150px;
+    position: absolute;
+    top: 2%;
+    left: 4%;
+    background: white;
+    float: left;
+    width: 750px;
 }
+
 #logo ul {
     list-style-type: none;
     width: 180px;
 }
+
 #logo ul li {
     margin-left: 50px;
     margin-top: 25px;
 }
+
 #logo ul li a {
     display: block;
     padding: 0px;
@@ -44,7 +47,7 @@
 #welkom {
     font-size: 34px;
     position: relative;
-    left:450px;
+    left: 450px;
     top: 45px;
 }
 
@@ -65,7 +68,7 @@
 #InlogForm {
     font-size: 24px;
     position: relative;
-    left:100px;
+    left: 100px;
     top: 45px;
 }
 
@@ -76,8 +79,8 @@
 }
 
 #InlogForm label {
-    width : 20%;
-    text-align : left;
+    width: 20%;
+    text-align: left;
     font-size: 20px;
     font-family: Verdana bold;
     color: black;
@@ -85,18 +88,18 @@
 }
 
 #InlogForm label, input {
-    display : block;
-    float : left;
+    display: block;
+    float: left;
 }
 
 #InlogForm br {
-    clear : both;
+    clear: both;
 }
 
 #registratieForm {
     font-size: 24px;
     position: relative;
-    left:100px;
+    left: 100px;
     top: 45px;
 }
 
@@ -107,8 +110,8 @@
 }
 
 #registratieForm label {
-    width : 20%;
-    text-align : left;
+    width: 20%;
+    text-align: left;
     font-size: 20px;
     font-family: Verdana bold;
     color: black;
@@ -116,12 +119,12 @@
 }
 
 #registratieForm label, input {
-    display : block;
-    float : left;
+    display: block;
+    float: left;
 }
 
 #registratieForm br {
-    clear : both;
+    clear: both;
 }
 
 #registreren2 {
@@ -159,6 +162,7 @@
     width: 780px;
     height: 400px;
 }
+
 #middenRegistratieScherm {
     position: absolute;
     top: 9%;
@@ -172,6 +176,42 @@
     width: 780px;
     height: 800px;
 }
+
+#middenpakketten {
+    position: absolute;
+    top: 9%;
+    left: 300px;
+    background-color: whitesmoke;
+    font-size: 12pt;
+    border-radius: 25px;
+    border: 2px solid #8AC007;
+    padding: 10px;
+    float: left;
+    width: 780px;
+    height: 600px;
+}
+
+#middenpakketten table {
+    border-spacing: 0;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#middenpakketten tr {
+    cursor: pointer;
+}
+
+#middenpakketten th {
+    cursor: default;
+}
+
+#middenpakketten th, td {
+    width: 20%;
+    text-align: center;
+    border: 1px solid #8AC007;
+    padding: 4px;
+}
+
 #middenOnzediensten {
     position: absolute;
     top: 9%;
@@ -185,16 +225,19 @@
     padding: 10px;
     width: 780px;
     float: left;
-    height: 500px; 
+    height: 500px;
 }
+
 #middenOnzediensten ul {
     list-style-type: none;
     width: 280px;
 }
+
 #middenOnzediensten ul li {
     margin-left: 50px;
     width: 280px;
 }
+
 #middenOnzediensten ul li a {
     display: block;
     padding: 0px;
@@ -203,61 +246,65 @@
     width: 280px;
 }
 
-#Inloggen{
+#Inloggen {
     position: relative;
     width: 160px;
     height: 40px;
     font-size: 16px;
     font-family: Verdana;
     color: white;
-    background:#44699C;
-    left:150px;
-    top:150px;
+    background: #44699C;
+    left: 150px;
+    top: 150px;
 }
+
 #Inloggen a:hover {
     background-color: #5F94DC;
 }
+
 #Registreren {
     position: relative;
     width: 160px;
     height: 40px;
     font-size: 16px;
     font-family: Verdana;
-    background:#44699C;
+    background: #44699C;
     color: white;
-    left:250px;
-    top:150px;
+    left: 250px;
+    top: 150px;
 }
 
-#menu ul {  
+#menu ul {
     list-style-type: none;
     width: 175px;
 }
 
-#Aanbiedenpakket{
+#Aanbiedenpakket {
     position: relative;
     width: 190px;
     height: 40px;
     font-size: 16px;
     font-family: Verdana;
     color: white;
-    background:#44699C;
-    left:150px;
-    top:150px;
+    background: #44699C;
+    left: 150px;
+    top: 150px;
 }
+
 #Aanbiedenpakket a:hover {
     background-color: #5F94DC;
 }
+
 #Wijzigengegevens {
     position: relative;
     width: 200px;
     height: 40px;
     font-size: 16px;
     font-family: Verdana;
-    background:#44699C;
+    background: #44699C;
     color: white;
-    left:250px;
-    top:150px;
+    left: 250px;
+    top: 150px;
 }
 
 #menu {
@@ -265,10 +312,12 @@
     top: 20%;
     left: 8%;
 }
+
 #menu ul li {
     display: inline;
     margin: 5px;
 }
+
 #menu ul li a {
     display: block;
     padding: 15px;
@@ -277,18 +326,21 @@
     color: white;
     text-align: center;
 }
+
 #menu ul li a:hover {
     /* Nieuw */
     background-color: #5F94DC;
 }
+
 #tekstWachtwoordVergeten {
-    width : 20%;
-    text-align : left;
+    width: 20%;
+    text-align: left;
     font-size: 20px;
     font-family: Verdana bold;
     color: black;
     font-weight: bold;
 }
+
 #controleer {
     position: relative;
     left: 80px;
@@ -296,6 +348,7 @@
     font-size: 25px;
     color: red;
 }
+
 #akkoordgegevens {
     position: relative;
     left: 180px;
@@ -306,16 +359,18 @@
     background: #44699C;
     color: white;
 }
+
 #foutmelding {
     position: relative;
     left: 70px;
-    width : 20%;
-    //text-align : left;
+    width: 20%;
+/ / text-align : left;
     font-size: 20px;
     font-family: Verdana bold;
     color: red;
     font-weight: bold;
 }
+
 #naarInlogscherm {
     position: relative;
     left: 180px;
@@ -326,6 +381,7 @@
     background: #44699C;
     color: white;
 }
+
 #registratieGereed {
     position: relative;
     top: 30%;
@@ -335,6 +391,7 @@
     width: 480px;
     height: 200px;
 }
+
 #InloggenRegistratieGereed {
     position: relative;
     width: 160px;
@@ -342,10 +399,11 @@
     font-size: 16px;
     font-family: Verdana;
     color: white;
-    background:#44699C;
-    left:150px;
-    top:50px;
+    background: #44699C;
+    left: 150px;
+    top: 50px;
 }
+
 #pakketVersturen {
     position: relative;
     width: 260px;
@@ -353,21 +411,23 @@
     font-size: 16px;
     font-family: Verdana;
     color: white;
-    background:#44699C;
-    left:80px;
-    top:150px;
+    background: #44699C;
+    left: 80px;
+    top: 150px;
 }
+
 #gegevensWijzigen {
     position: relative;
     width: 260px;
     height: 40px;
     font-size: 16px;
     font-family: Verdana;
-    background:#44699C;
+    background: #44699C;
     color: white;
-    left:170px;
-    top:150px;
+    left: 170px;
+    top: 150px;
 }
+
 #middenContact {
     position: absolute;
     top: 9%;
@@ -376,11 +436,12 @@
     font-size: 12pt;
     border-radius: 25px;
     border: 2px solid #8AC007;
-    padding: 10px; 
+    padding: 10px;
     float: left;
     width: 780px;
-    height: 400px; 
+    height: 400px;
 }
+
 #contactGegevens {
     position: relative;
     width: 260px;
@@ -389,9 +450,10 @@
     font-family: Verdana;
     color: #44699C;
     font-weight: bold;
-    left:80px;
-    top:50px;
+    left: 80px;
+    top: 50px;
 }
+
 #pakketdiensten {
     position: relative;
     width: 260px;
@@ -400,9 +462,10 @@
     font-family: Verdana;
     color: #44699C;
     font-weight: bold;
-    left:80px;
-    top:30px;
+    left: 80px;
+    top: 30px;
 }
+
 #pakketdienstenTekst {
     position: relative;
     width: 600px;
@@ -412,6 +475,7 @@
     left: 80px;
     top: 15px;
 }
+
 #extraVerzekering {
     position: relative;
     width: 260px;
@@ -419,9 +483,10 @@
     font-family: Verdana;
     color: #44699C;
     font-weight: bold;
-    left:80px;
-    top:10px;
+    left: 80px;
+    top: 10px;
 }
+
 #extraVerzekeringTekst {
     position: relative;
     width: 600px;
@@ -431,6 +496,7 @@
     left: 80px;
     top: 0px;
 }
+
 #hoeWerktHet {
     position: relative;
     width: 260px;
@@ -439,9 +505,10 @@
     font-family: Verdana;
     color: #44699C;
     font-weight: bold;
-    left:80px;
-    top:0px;
+    left: 80px;
+    top: 0px;
 }
+
 #hoeWerktHetTekst {
     position: relative;
     width: 600px;
@@ -451,6 +518,7 @@
     left: 80px;
     top: 0px;
 }
+
 #inloggenTreinkoerier {
     position: relative;
     width: 260px;
@@ -458,20 +526,21 @@
     font-size: 16px;
     font-family: Verdana;
     color: white;
-    background:#44699C;
-    left:80px;
-    top:150px;
+    background: #44699C;
+    left: 80px;
+    top: 150px;
 }
-#registrerenTreinkoerier{
+
+#registrerenTreinkoerier {
     position: relative;
     width: 260px;
     height: 40px;
     font-size: 16px;
     font-family: Verdana;
-    background:#44699C;
+    background: #44699C;
     color: white;
-    left:170px;
-    top:150px;
+    left: 170px;
+    top: 150px;
 }
 
 
