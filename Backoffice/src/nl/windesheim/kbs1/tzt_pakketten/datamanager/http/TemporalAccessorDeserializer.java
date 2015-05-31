@@ -19,8 +19,8 @@ public class TemporalAccessorDeserializer implements JsonDeserializer<TemporalAc
             .parseCaseInsensitive()
             .append(DateTimeFormatter.ISO_LOCAL_DATE)
             .optionalStart()
-            .appendLiteral('T')
-            .append(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
+            .appendLiteral(' ')
+            .append(DateTimeFormatter.ISO_LOCAL_TIME)
             .toFormatter();
 
     @Override
