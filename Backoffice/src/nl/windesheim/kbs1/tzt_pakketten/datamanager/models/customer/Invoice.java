@@ -4,18 +4,19 @@ import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Package;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.time.temporal.TemporalAccessor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class Invoice {
 
-    private Instant date;
+    private TemporalAccessor date;
     private String number;
     private Duration paymentTerm;
     private List<nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Package> packages;
 
-    public Instant getDate() {
+    public TemporalAccessor getDate() {
         return date;
     }
 

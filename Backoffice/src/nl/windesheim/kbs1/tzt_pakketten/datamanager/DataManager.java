@@ -3,10 +3,8 @@ package nl.windesheim.kbs1.tzt_pakketten.datamanager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import nl.windesheim.kbs1.tzt_pakketten.Config;
-import nl.windesheim.kbs1.tzt_pakketten.datamanager.http.CustomerDeserializer;
-import nl.windesheim.kbs1.tzt_pakketten.datamanager.http.TztService;
-import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.*;
-import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Package;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.http.*;
+import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.Money;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route.TrainCourier;
 import retrofit.Callback;
@@ -16,6 +14,9 @@ import retrofit.RetrofitError;
 import retrofit.client.Response;
 import retrofit.converter.GsonConverter;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.time.temporal.TemporalAccessor;
 import java.util.List;
 
 /**
@@ -40,7 +41,12 @@ public class DataManager {
             }
         };
 
-        Gson gson = new GsonBuilder().registerTypeAdapter(Customer.class, new CustomerDeserializer()).create();
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapter(Customer.class, new CustomerDeserializer())
+                .registerTypeAdapter(TemporalAccessor.class, new TemporalAccessorDeserializer())
+                .registerTypeAdapter(Money.class, new MoneyDeserializer())
+                .registerTypeAdapter(Duration.class, new DurationDeserializer())
+                .create();
 
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(Config.API_URL)

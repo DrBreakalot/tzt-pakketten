@@ -5,12 +5,13 @@ import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.location.Location;
 
 import java.time.Instant;
 import java.time.Duration;
+import java.time.temporal.TemporalAccessor;
 
 public class RouteLeg<T extends Location> {
 
     private Money cost;
     private Duration duration;
-    private Instant start;
+    private TemporalAccessor start;
     private T fromLocation;
     private T toLocation;
 
@@ -22,7 +23,7 @@ public class RouteLeg<T extends Location> {
         return duration;
     }
 
-    public Instant getStart() {
+    public TemporalAccessor getStart() {
         return start;
     }
 

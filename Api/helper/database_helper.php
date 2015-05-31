@@ -302,8 +302,8 @@ function selectRoute($routeId) {
     }
 
     $route['legs'] = selectRouteLegsWithRouteId($routeId);
-    $route['from'] = selectLocation($routeId['from_address']);
-    $route['to'] = selectLocation($routeId['to_address']);
+    $route['from'] = selectLocation($route['from_address']);
+    $route['to'] = selectLocation($route['to_address']);
 
     return $route;
 }

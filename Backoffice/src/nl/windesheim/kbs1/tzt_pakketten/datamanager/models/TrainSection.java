@@ -3,15 +3,16 @@ package nl.windesheim.kbs1.tzt_pakketten.datamanager.models;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.location.StationLocation;
 
 import java.time.Instant;
+import java.time.temporal.TemporalAccessor;
 
 public class TrainSection {
 
-    private Instant departure;
+    private TemporalAccessor departure;
     private boolean repeating;
     private StationLocation fromStation;
     private StationLocation toStation;
 
-    public Instant getDeparture() {
+    public TemporalAccessor getDeparture() {
         return departure;
     }
 

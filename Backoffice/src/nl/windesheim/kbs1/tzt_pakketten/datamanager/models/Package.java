@@ -1,19 +1,39 @@
 package nl.windesheim.kbs1.tzt_pakketten.datamanager.models;
 
+import com.google.gson.annotations.SerializedName;
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.route.Route;
 
 import java.time.Instant;
+import java.time.temporal.Temporal;
+import java.time.temporal.TemporalAccessor;
 
 public class Package {
 
+    @SerializedName("width")
     private double width;
+
+    @SerializedName("height")
     private double height;
+
+    @SerializedName("depth")
     private double depth;
+
+    @SerializedName("weight")
     private double weight;
+
+    @SerializedName("barcode")
     private String barcode;
-    private Instant enterDate;
+
+    @SerializedName("enter_date")
+    private TemporalAccessor enterDate;
+
+    @SerializedName("paid_price")
     private Money paidPrice;
+
+    @SerializedName("state")
     private PackageState state;
+
+    @SerializedName("route")
     private Route route;
 
     public double getWidth() {
@@ -36,7 +56,7 @@ public class Package {
         return barcode;
     }
 
-    public Instant getEnterDate() {
+    public TemporalAccessor getEnterDate() {
         return enterDate;
     }
 
