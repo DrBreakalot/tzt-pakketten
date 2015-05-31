@@ -62,6 +62,48 @@ function getPackages()
     }
 }
 
+function getPackage($id) {
+    global $TZT_API_URL;
+
+    $token = getTokenFromCookie();
+    if (!$token) {
+        return null;
+    }
+
+    $url = $TZT_API_URL . 'package.php?package_id=' . $id;
+
+    $response = get($url, $token);
+
+    if ($response['status'] === 200) {
+        return $response['body'];
+    } else {
+        return null;
+    }
+}
+
+function acceptPackage($id, $accept) {
+    global $TZT_API_URL;
+
+    $token = getTokenFromCookie();
+    if (!$token) {
+        return null;
+    }
+
+    $url = $TZT_API_URL . 'package.php?package_id=' . $id;
+
+    $body = array(
+        'accept' => $accept,
+    );
+    $response = post($url, $body, $token);
+
+    if ($response['status'] === 200) {
+        return $response['body'];
+    } else {
+        return null;
+    }
+
+}
+
 function getMenu()
 {
     $token = getTokenFromCookie();

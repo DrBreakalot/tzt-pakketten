@@ -6,9 +6,25 @@ require_once 'helper/connection_helper.php';
 require_once 'helper/route_helper.php';
 require_once 'helper/auth_helper.php';
 
-requireMethod(array("POST"));
+requireMethod(array("GET", "POST"));
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === "GET") {
+    requireUserType(array("Customer", "BackOffice"));
+    requireGetParameters(array('package_id' => array('string')));
+
+    $package = selectPackage($_GET['package_id']);
+    if ($user['type'] === 'Customer') {
+        if ($user['id'] != $package['customer_id']) {
+            http_response_code(403);
+            echo json_encode(array(
+                'error' => 'This package belongs to another customer'
+            ));
+            die;
+        }
+    }
+    echo json_encode($package);
+
+} else if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (array_key_exists('package_id', $_GET)) {
         requireUserType(array("Customer", "BackOffice"));
         decodePostBody();
@@ -100,6 +116,7 @@ function createPackage($json) {
     $package['state'] = 'PREPARING';
     $package['paid_price'] = $route['cost'];
     $package['enter_date'] = getdate();
+    $package['barcode'] = generateBarcode();
 
     $packageId = insertPackage($package);
 
@@ -108,4 +125,8 @@ function createPackage($json) {
         'package_id' => $packageId,
         'price' => $package['paid_price']
     ));
+}
+
+function generateBarcode() {
+    return '123456789';
 }

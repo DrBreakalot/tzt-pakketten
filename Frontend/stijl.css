@@ -172,7 +172,7 @@ body {
     cursor: default;
 }
 
-#middenpakketten th, td {
+#middenpakketten th, #middenpakketten td {
     width: 20%;
     text-align: center;
     border: 1px solid #8AC007;
@@ -199,6 +199,19 @@ body {
     background-color: white;
     text-align: center;
     width: 280px;
+}
+
+#pakkettabel {
+    width: 100%;
+}
+
+#pakkettabel th, #pakkettabel td {
+    text-align: left;
+    width: 25%;
+}
+
+#pakketadresheader {
+    text-decoration: underline;
 }
 
 #Inloggen {
@@ -278,7 +291,6 @@ body {
 }
 
 #menu ul li a:hover {
-    /* Nieuw */
     background-color: #5F94DC;
 }
 
@@ -466,6 +478,23 @@ body {
     color: white;
     left: 170px;
     top: 150px;
+}
+
+#pakketknop td {
+    height: 40px;
+    text-align: center;
+}
+
+#pakketknop a {
+    display: inline-block;
+    color: white;
+    background: #44699C;
+    padding: 10px;
+    width: 200px;
+}
+
+#pakketknop a:hover {
+    background-color: #5F94DC;
 }
 
 

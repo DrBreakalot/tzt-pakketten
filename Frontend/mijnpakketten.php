@@ -22,10 +22,6 @@ $packages = getPackages();
                 </ul>
 
             </div>
-            <span id="welkom">
-                <a href=""></a>
-                Welkom <?php echo $user['name'] ?>!
-            </span>
         </div>
         <div id="menu">
             <ul>
