@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                 <?php echo getMenu(); ?>
 
             </ul>
-            <span id="inlogscherm">
+            <div id="inlogscherm" class="midden">
 
                 <form id="InlogForm" method="post" action="inlogschermtreinkoerier.php">
                     
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     <br/>
                     <input id="inloggen2" type="submit" value="Inloggen">
                 </form>
-            </span>
+            </div>
         </div>
     </body>
 </html>
