@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         </span><?php } ?> <br/><br/>
 
                     <label for "wachtwoord">Wachtwoord:</label>
-                    <input type="text" name="wachtwoord" value="<?php if ($heeftGedrukt == TRUE) {
+                    <input type="password" name="wachtwoord" value="<?php if ($heeftGedrukt == TRUE) {
                         print_r($_POST["wachtwoord"]);
                     } ?>">
                     <?php if ($heeftGedrukt == TRUE && (!isset ($_POST["wachtwoord"]) || (strlen($_POST["wachtwoord"]) == 0))) {

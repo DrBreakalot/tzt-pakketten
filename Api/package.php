@@ -115,7 +115,7 @@ function createPackage($json) {
     $package['customer'] = $user;
     $package['state'] = 'PREPARING';
     $package['paid_price'] = $route['cost'];
-    $package['enter_date'] = getdate();
+    $package['enter_date'] = time();
     $package['barcode'] = generateBarcode();
 
     $packageId = insertPackage($package);

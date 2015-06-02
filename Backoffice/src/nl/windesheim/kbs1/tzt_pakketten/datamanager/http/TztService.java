@@ -8,6 +8,7 @@ import retrofit.http.*;
 import java.util.List;
 
 public interface TztService {
+
     @POST("/auth.php")
     void login(@Body LoginRequest body, Callback<LoginResponse> token);
 

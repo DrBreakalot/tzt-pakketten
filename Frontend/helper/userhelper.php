@@ -62,6 +62,40 @@ function getPackages()
     }
 }
 
+function offerPackage($weight, $width, $length, $height, $fromCity, $fromPostalCode, $fromAddress, $toCity, $toPostalCode, $toAddress) {
+    global $TZT_API_URL;
+
+    $token = getTokenFromCookie();
+    if (!$token) {
+        return null;
+    }
+
+    $url= $TZT_API_URL . 'package.php';
+    $body = array(
+        'width' => doubleval($width),
+        'height' => doubleval($height),
+        'depth' => doubleval($length),
+        'weight' => doubleval($weight),
+        'from' => array(
+            'address' => $fromAddress,
+            'postal_code' => $fromPostalCode,
+            'city' => $fromCity,
+        ),
+        'to' => array(
+            'address' => $toAddress,
+            'postal_code' => $toPostalCode,
+            'city' => $toCity,
+        ),
+    );
+
+    $response = post($url, $body, $token);
+    if ($response['status'] >= 200 || $response['status'] < 300) {
+        return $response['body'];
+    } else {
+        return null;
+    }
+}
+
 function getPackage($id) {
     global $TZT_API_URL;
 
@@ -101,7 +135,6 @@ function acceptPackage($id, $accept) {
     } else {
         return null;
     }
-
 }
 
 function getMenu()

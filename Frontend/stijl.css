@@ -210,7 +210,7 @@ body {
     width: 25%;
 }
 
-#pakketadresheader {
+#pakketadresheader, #pakketgegevensheader {
     text-decoration: underline;
 }
 
@@ -497,4 +497,10 @@ body {
     background-color: #5F94DC;
 }
 
+#aanbiedenpakkettable {
+    width: 100%;
+}
 
+#aanbiedenpakkettable td, #aanbiedenpakkettable th {
+    width: 25%;
+}

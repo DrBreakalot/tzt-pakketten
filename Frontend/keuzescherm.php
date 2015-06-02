@@ -40,7 +40,7 @@ require_once('helper/userhelper.php');
 
                     Gebruikersnaam: <input type="text" name="voornaam"><br/>
                     <br/>
-                    Wachtwoord: <input type="text" name="achternaam"><br/>
+                    Wachtwoord: <input type="password" name="achternaam"><br/>
                     <br/>
                     Wachtwoord vergeten? Klik hier<br/>
                     <br/>

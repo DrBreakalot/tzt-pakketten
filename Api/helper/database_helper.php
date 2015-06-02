@@ -54,14 +54,14 @@ function insertPackage($package) {
 
     $routeId = insertRoute($package['route']);
 
-    $insertStatement = $db->prepare('INSERT INTO `package` (`width`, `height`, `depth`, `weight`, `barcode`, `enter_date`, `paid_price`, `state`, `customer_id`, `route_id`, `invoice_number`) VALUES (:width, :height, :depth, :weight, :barcode, :enter_date, :paid_price, :state, :customer_id, :route_id, :invoice_number)');
+    $insertStatement = $db->prepare('INSERT INTO `package` (`width`, `height`, `depth`, `weight`, `barcode`, `enter_date`, `paid_price`, `state`, `customer_id`, `route_id`, `invoice_number`) VALUES (:width, :height, :depth, :weight, :barcode, NOW(), :paid_price, :state, :customer_id, :route_id, :invoice_number)');
     $insertStatement->execute(array(
         ':width' => $package['width'],
         ':height' => $package['height'],
         ':depth' => $package['depth'],
         ':weight' => $package['weight'],
         ':barcode' => getArrayValue('barcode', $package),
-        ':enter_date' => getArrayValue('enter_date', $package),
+        //':enter_date' => date('r', getArrayValue('enter_date', $package)),
         ':paid_price' => getArrayValue('paid_price', $package),
         ':state' => $package['state'],
         ':customer_id' => $package['customer']['id'],
@@ -120,7 +120,7 @@ function insertRouteLeg($routeLeg, $routeId) {
     $courier = getArrayValue('courier', $routeLeg);
     $trainCourier = getArrayValue('train_courier', $routeLeg);
 
-    $insertStatement = $db->prepare('INSERT INTO `routeleg` (`cost`, `duration`, `start`, `is_actual`, `route_id`, `from_location_id`, `to_location_id`, `courier_id`, `train_courier_id`) VALUES (:cost, :duration, :start, :is_actual, :route_id, :from_location_id, :to_location_id, :courier_id, :train_courier_id)');
+    $insertStatement = $db->prepare('INSERT INTO `routeleg` (`cost`, `duration`, `start`, `is_actual`, `route`, `from_location`, `to_location`, `courier`, `train_courier`) VALUES (:cost, :duration, :start, :is_actual, :route_id, :from_location_id, :to_location_id, :courier_id, :train_courier_id)');
     $insertStatement->execute(array(
         ':cost' => $routeLeg['cost'],
         ':duration' => getArrayValue('duration', $routeLeg),
@@ -310,7 +310,7 @@ function selectRoute($routeId) {
 
 function selectRouteLegsWithRouteId($routeId) {
     global $db;
-    $legStatement = $db->prepare('SELECT * FROM `routeleg` WHERE `route_id` = :route_id');
+    $legStatement = $db->prepare('SELECT * FROM `routeleg` WHERE `route` = :route_id');
     $legStatement->execute(array(
         ':route_id' => $routeId,
     ));
@@ -321,8 +321,8 @@ function selectRouteLegsWithRouteId($routeId) {
     }
 
     foreach ($routeLegs as $key => $routeLeg) {
-        $routeLeg['to'] = selectLocation($routeLeg['to_location_id']);
-        $routeLeg['from'] = selectLocation($routeLeg['from_location_id']);
+        $routeLeg['to'] = selectLocation($routeLeg['to_location']);
+        $routeLeg['from'] = selectLocation($routeLeg['from_location']);
         $routeLegs[$key] = $routeLeg;
     }
 
