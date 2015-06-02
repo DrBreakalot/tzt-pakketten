@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Use this class to configure the database settings
+ */
 class Config {
     
     const DB_HOST = "localhost";

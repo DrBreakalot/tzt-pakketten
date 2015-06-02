@@ -2,6 +2,13 @@
 
 require_once dirname(__FILE__).'/../config/config.php';
 
+/**
+ * Connects to the google servers to get coordinates from an address
+ * @param $address The address line
+ * @param $city The city
+ * @param $postalCode The postal code
+ * @return array An array containing two keys: lat, lng
+ */
 function getLatLong($address, $city, $postalCode) {
     $combinedAddress = $address . ", " . $postalCode . " " . $city;
 
@@ -24,6 +31,13 @@ function getLatLong($address, $city, $postalCode) {
     }
 }
 
+/**
+ * Takes two locations an returns distance and time to travel between these locations
+ * @param $from array The departing address
+ * @param $to array The arriving address
+ * @param $mode string The mode of travel, either driving or bicycling
+ * @return array An array containing two keys: duration (in seconds), distance (in kilometers)
+ */
 function getDistanceTime($from, $to, $mode) {
     $origin = $from["latitude"] . "," . $from["longitude"];
     $destination = $to["latitude"] . "," . $to["longitude"];

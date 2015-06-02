@@ -18,6 +18,10 @@ if ($user['type'] === "BackOffice") {
      getPackagesForUser($user['id']);
 }
 
+/**
+ * Returns all packages linked to a given user
+ * @param $userId integer|string The id of the user
+ */
 function getPackagesForUser($userId) {
     echo json_encode(selectPackages($userId));
 }

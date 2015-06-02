@@ -12,6 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     createTrainCourier($json);
 }
 
+/**
+ * Creates a train courier
+ * @param $json array The json body
+ */
 function createTrainCourier($json) {
     $requiredParameters = array(
         "name" => array("string"),

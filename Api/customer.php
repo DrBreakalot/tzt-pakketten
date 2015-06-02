@@ -20,6 +20,10 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
     createCustomer($json);
 }
 
+/**
+ * Tries to create the customer
+ * @param $json array the json body
+ */
 function createCustomer($json) {
     $requiredParameters = array(
         "name" => array("string"),

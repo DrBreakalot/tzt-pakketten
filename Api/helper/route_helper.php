@@ -5,6 +5,12 @@ require_once dirname(__FILE__).'/general_helper.php';
 require_once dirname(__FILE__).'/database_helper.php';
 require_once dirname(__FILE__).'/../config/config.php';
 
+/**
+ * Calculates the cheapest route between two locations
+ * @param $from array Departing location
+ * @param $to array Arrival location
+ * @return array|null The route between the locations, or null if none available
+ */
 function calculateRoute($from, $to) {
     $trainRoute = calculateRouteUsingTrain($from, $to);
     $addressRoute = calculateRouteUsingRoad($from, $to);
@@ -19,6 +25,12 @@ function calculateRoute($from, $to) {
     return $route;
 }
 
+/**
+ * Calculates the cheapest route when using train
+ * @param $from array Departing location
+ * @param $to array Arrival location
+ * @return array|null The route between the locations, or null if none available
+ */
 function calculateRouteUsingTrain(&$from, &$to) {
     $stations = selectStations();
 
@@ -77,6 +89,12 @@ function calculateRouteUsingTrain(&$from, &$to) {
     return $route;
 }
 
+/**
+ * Calculates the cheapest route when not using train
+ * @param $from array Departing location
+ * @param $to array Arrival location
+ * @return array|null The route between the locations, or null if none available
+ */
 function calculateRouteUsingRoad(&$from, &$to) {
     $routeLeg = calculateRouteLegUsingRoad($from, $to);
     $route = array (
@@ -88,6 +106,12 @@ function calculateRouteUsingRoad(&$from, &$to) {
     return $route;
 }
 
+/**
+ * Calculates a route leg between two locations, using the couriers in the database
+ * @param $from array Departing location
+ * @param $to array Arrival location
+ * @return array|null The route between the locations, or null if none available
+ */
 function calculateRouteLegUsingRoad(&$from, &$to) {
     $couriers = selectCouriers();
     $cheapestRouteLeg = null;
@@ -119,6 +143,12 @@ function calculateRouteLegUsingRoad(&$from, &$to) {
     return $cheapestRouteLeg;
 }
 
+/**
+ * Calculates the cost of a distance when using the available calculators
+ * @param $calculators array An array of route calculators
+ * @param $distance double the distance from the locations
+ * @return integer the cost in cents
+ */
 function calculateCost($calculators, $distance) {
     foreach ($calculators as $calculator) {
         if ($calculator["minimum_distance"] <= $distance && ($calculator["maximum_distance"] === null || $calculator["maximum_distance"] >= $distance)) {

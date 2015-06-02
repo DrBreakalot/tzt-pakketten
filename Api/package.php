@@ -36,6 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === "GET") {
     }
 }
 
+/**
+ * Accept a package
+ * @param $json array The json body
+ * @param $packageId integer|string the id of the package
+ */
 function acceptPackage($json, $packageId) {
     global $user;
     $package = selectPackage($packageId);
@@ -78,6 +83,10 @@ function acceptPackage($json, $packageId) {
     updatePackageState($packageId, $package['state']);
 }
 
+/**
+ * Creates a package
+ * @param $json array The json body
+ */
 function createPackage($json) {
     $requiredParameters = array(
         "width" => array("integer", "double"),
@@ -127,6 +136,10 @@ function createPackage($json) {
     ));
 }
 
+/**
+ * Generates a barcode
+ * @return string The generated barcode
+ */
 function generateBarcode() {
     return '123456789';
 }

@@ -7,6 +7,11 @@ $db = new PDO('mysql:host=' . Config::DB_HOST . ';dbname=' . Config::DB_NAME . '
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 
+/**
+ * Inserts a location into the database
+ * @param $location array An array containing the location
+ * @return string The id of the inserted location
+ */
 function insertLocation($location) {
     global $db;
     $insertStatement = $db->prepare('INSERT INTO `location` (`name`, `latitude`, `longitude`, `is_station`, `address`, `city`, `postal_code`) VALUES (:name, :latitude, :longitude, :is_station, :address, :city, :postal_code)');
@@ -22,6 +27,11 @@ function insertLocation($location) {
     return $db->lastInsertId();
 }
 
+/**
+ * Inserts a customer into the database
+ * @param $customer array An array containing a customer
+ * @return string The id of the inserted customer
+ */
 function insertCustomer($customer) {
     global $db;
     $insertStatement = $db->prepare('INSERT INTO `customer` (`name`, `email`, `address`, `is_business`, `kvk_number`, `password`) VALUES (:name, :email, :address, :is_business, :kvk_number, :password)');
@@ -36,6 +46,11 @@ function insertCustomer($customer) {
     return $db->lastInsertId();
 }
 
+/**
+ * Inserts a train courier into the database
+ * @param $trainCourier array An array containing the train courier
+ * @return string The id of the inserted train courier
+ */
 function insertTrainCourier($trainCourier) {
     global $db;
     $insertStatement = $db->prepare('INSERT INTO `traincourier` (`name`, `email`, `address`, `bank_account`, `password`) VALUES (:name, :email, :address, :bank_account, :password)');
@@ -49,6 +64,11 @@ function insertTrainCourier($trainCourier) {
     return $db->lastInsertId();
 }
 
+/**
+ * Inserts a package into the database
+ * @param $package array An array containing a package
+ * @return string The id of the inserted package
+ */
 function insertPackage($package) {
     global $db;
 
@@ -71,6 +91,11 @@ function insertPackage($package) {
     return $db->lastInsertId();
 }
 
+/**
+ * Inserts a route into the database
+ * @param $route array An array containing the route
+ * @return string The id of the inserted route
+ */
 function insertRoute($route) {
     global $db;
 
@@ -103,6 +128,12 @@ function insertRoute($route) {
     return $routeId;
 }
 
+/**
+ * Inserts a route leg into the database
+ * @param $routeLeg array an array containing the route leg
+ * @param $routeId integer|string The id of the route to link this route leg to
+ * @return string The id of the inserted route leg
+ */
 function insertRouteLeg($routeLeg, $routeId) {
     global $db;
 
@@ -135,6 +166,11 @@ function insertRouteLeg($routeLeg, $routeId) {
     return $db->lastInsertId();
 }
 
+/**
+ * Selects a customer from the database
+ * @param $customerId integer|string The id of which to select the customer
+ * @return array The selected customer
+ */
 function selectCustomer($customerId) {
     global $db;    
     $customerStatement = $db->prepare("SELECT `id`, `name`, `email`, `is_business`, `kvk_number`, `address` FROM `customer` WHERE `id` = :id");
@@ -149,6 +185,11 @@ function selectCustomer($customerId) {
     return $user;
 }
 
+/**
+ * Selects a train courier from the database
+ * @param $trainCourierId integer|string The courier of which to select the train courier
+ * @return array The selected train courier
+ */
 function selectTrainCourier($trainCourierId) {
     global $db;
     $courierStatement = $db->prepare('SELECT `id`, `name`, `email`, `bank_account`, `address` FROM `traincourier` WHERE `id` = :id');
@@ -164,6 +205,10 @@ function selectTrainCourier($trainCourierId) {
     return $courier;
 }
 
+/**
+ * Selects all customers from the database
+ * @return array An array containing all customers
+ */
 function selectCustomers() {
     global $db;
     $customerStatement = $db->prepare("SELECT `id`, `name`, `email`, `is_business`, `kvk_number`, `address` FROM `customer`");
@@ -181,6 +226,10 @@ function selectCustomers() {
     return $users;
 }
 
+/**
+ * Selects all train couriers from the database
+ * @return array An array containing all traincouriers
+ */
 function selectTrainCouriers() {
     global $db;
     $courierStatement = $db->prepare('SELECT `id`, `name`, `email`, `bank_account`, `address` FROM `traincourier`');
@@ -199,6 +248,11 @@ function selectTrainCouriers() {
     return $couriers;
 }
 
+/**
+ * Selects the sections which a train courier travels from the database
+ * @param $trainCourierId integer|string The courier of which to select the sections
+ * @return array An array containing all sections for the requested customer
+ */
 function selectSectionsForTrainCourier($trainCourierId) {
     global $db;
     $sectionStatement = $db->prepare('SELECT `id`, `depature_time` `from_station`, `to_station`, `repeating` FROM `section` WHERE `courier` = :courier_id');
@@ -217,6 +271,11 @@ function selectSectionsForTrainCourier($trainCourierId) {
     return $sections;
 }
 
+/**
+ * Selects a location from the database
+ * @param $locationId integer|string The id of which to select the location
+ * @return array The requested location
+ */
 function selectLocation($locationId) {
     global $db;
     $statement = $db->prepare('SELECT `id`, `name`, `latitude`, `longitude`, `address`, `city`, `postal_code`, CASE(`is_station`) WHEN TRUE THEN "Station" ELSE "Address" END AS `type` FROM `location` WHERE `id` = :id');
@@ -226,6 +285,10 @@ function selectLocation($locationId) {
     return $location;
 }
 
+/**
+ * Selects a list of all stations from the database
+ * @return array An array containing all stations
+ */
 function selectStations() {
     global $db;
     $statement = $db->prepare('SELECT `id`, `name`, `latitude`, `longitude`, "Station" AS `type` FROM `location` WHERE `is_station`');
@@ -235,6 +298,10 @@ function selectStations() {
     return $stations;
 }
 
+/**
+ * Selects all couriers from the database
+ * @return array An array containing all couriers
+ */
 function selectCouriers() {
     global $db;
     $statement = $db->prepare('SELECT `id`, `name`, `description`, `transit_mode` FROM `courier`');
@@ -254,6 +321,11 @@ function selectCouriers() {
     return $couriers;
 }
 
+/**
+ * Selects a package from the database
+ * @param $packageId integer|string The id of which to select the package
+ * @return array The requested package
+ */
 function selectPackage($packageId) {
     global $db;
     $packageStatement = $db->prepare('SELECT * FROM `package` WHERE `id` = :id');
@@ -272,6 +344,11 @@ function selectPackage($packageId) {
     return $package;
 }
 
+/**
+ * Selects all packages belonging to a customer from the database
+ * @param $customerId integer|string The id of the customer of which to select te packages
+ * @return array An array containing all packages belonging to the requested customer
+ */
 function selectPackages($customerId) {
     global $db;
     $packageStatement = $db->prepare('SELECT * FROM `package` WHERE `customer_id` = :customer_id');
@@ -289,6 +366,11 @@ function selectPackages($customerId) {
     return $packages;
 }
 
+/**
+ * Selects a route from the database
+ * @param $routeId integer|string The id of which to select the route
+ * @return array The requested route
+ */
 function selectRoute($routeId) {
     global $db;
     $routeStatement = $db->prepare('SELECT * FROM `route` WHERE `id` = :id');
@@ -308,6 +390,11 @@ function selectRoute($routeId) {
     return $route;
 }
 
+/**
+ * Selects all route legs belonging to a route from the database
+ * @param $routeId integer|string The id of the route of which to select the route legs
+ * @return array An array containing all route legs belonging to the route
+ */
 function selectRouteLegsWithRouteId($routeId) {
     global $db;
     $legStatement = $db->prepare('SELECT * FROM `routeleg` WHERE `route` = :route_id');
@@ -329,6 +416,11 @@ function selectRouteLegsWithRouteId($routeId) {
     return $routeLegs;
 }
 
+/**
+ * Updates the state of a package in the database
+ * @param $packageId integer|string The id of the package to update
+ * @param $packageState string The new state of the package, one of PREPARING, ACCEPTED, CANCELED, EN_ROUTE, ARRIVED
+ */
 function updatePackageState($packageId, $packageState) {
     global $db;
     $update = $db->prepare('UPDATE `package` SET `state` = :state WHERE `id` = :id');
