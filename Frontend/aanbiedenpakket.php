@@ -4,9 +4,9 @@ require_once('helper/userhelper.php');
 
 $user = requireUser();
 
-$posted = true;
+$posted = $_SERVER["REQUEST_METHOD"] == "POST";
 $error = null;
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($posted) {
     $requiredValues = array(
         'gewicht',
         'breedte',
@@ -75,26 +75,26 @@ function valueSet($key, $array) {
                         </tr>
                         <tr>
                             <td><label for="gewicht">Gewicht (kg)</label></td>
-                            <td><input type="text" id="gewicht" name="gewicht" tabindex="1"></td>
+                            <td><input type="text" id="gewicht" name="gewicht" tabindex="1" value="<?php if ($posted) { echo $_POST['gewicht']; } ?>"></td>
                             <th>Van</th>
                         </tr>
                         <tr>
                             <td><label for="breedte">Breedte (cm)</label></td>
-                            <td><input type="text" id="breedte" name="breedte" tabindex="2"></td>
+                            <td><input type="text" id="breedte" name="breedte" tabindex="2" value="<?php if ($posted) { echo $_POST['breedte']; } ?>"></td>
                             <td><label for="vanadres">Adres + huisnummer</label></td>
-                            <td><input type="text" id="vanadres" name="vanadres" tabindex="5"></td>
+                            <td><input type="text" id="vanadres" name="vanadres" tabindex="5" value="<?php if ($posted) { echo $_POST['vanadres']; } ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="lengte">Lengte (cm)</label></td>
-                            <td><input type="text" id="lengte" name="lengte" tabindex="3"></td>
+                            <td><input type="text" id="lengte" name="lengte" tabindex="3" value="<?php if ($posted) { echo $_POST['lengte']; } ?>"></td>
                             <td><label for="vanpostcode">Postcode</label></td>
-                            <td><input type="text" id="vanpostcode" name="vanpostcode" tabindex="6"></td>
+                            <td><input type="text" id="vanpostcode" name="vanpostcode" tabindex="6" value="<?php if ($posted) { echo $_POST['vanpostcode']; } ?>"></td>
                         </tr>
                         <tr>
                             <td><label for="hoogte">Hoogte (cm)</label></td>
-                            <td><input type="text" id="hoogte" name="hoogte" tabindex="4"></td>
+                            <td><input type="text" id="hoogte" name="hoogte" tabindex="4" value="<?php if ($posted) { echo $_POST['hoogte']; } ?>"></td>
                             <td><label for="vanplaatsnaam">Plaatsnaam</label></td>
-                            <td><input type="text" id="vanplaatsnaam" name="vanplaatsnaam" tabindex="7"></td>
+                            <td><input type="text" id="vanplaatsnaam" name="vanplaatsnaam" tabindex="7" value="<?php if ($posted) { echo $_POST['vanplaatsnaam']; } ?>"></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -105,19 +105,19 @@ function valueSet($key, $array) {
                             <td></td>
                             <td></td>
                             <td><label for="naaradres">Adres + huisnummer</label></td>
-                            <td><input type="text" id="naaradres" name="naaradres" tabindex="8"></td>
+                            <td><input type="text" id="naaradres" name="naaradres" tabindex="8" value="<?php if ($posted) { echo $_POST['naaradres']; } ?>"></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td><label for="naarpostcode">Postcode</label></td>
-                            <td><input type="text" id="naarpostcode" name="naarpostcode" tabindex="9"></td>
+                            <td><input type="text" id="naarpostcode" name="naarpostcode" tabindex="9" value="<?php if ($posted) { echo $_POST['naarpostcode']; } ?>"></td>
                         </tr>
                         <tr>
                             <td></td>
                             <td></td>
                             <td><label for="naarplaatsnaam">Plaatsnaam</label></td>
-                            <td><input type="text" id="naarplaatsnaam" name="naarplaatsnaam" tabindex="10"></td>
+                            <td><input type="text" id="naarplaatsnaam" name="naarplaatsnaam" tabindex="10" value="<?php if ($posted) { echo $_POST['naarplaatsnaam']; } ?>"></td>
                         </tr>
                         <tr>
                             <td></td>
