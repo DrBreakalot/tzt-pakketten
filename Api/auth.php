@@ -6,6 +6,9 @@ require_once 'helper/auth_helper.php';
 
 requireMethod(array("POST"));
 
+/**
+ * Tries to authenticate the user
+ */
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     decodePostBody();
     

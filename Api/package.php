@@ -6,9 +6,25 @@ require_once 'helper/connection_helper.php';
 require_once 'helper/route_helper.php';
 require_once 'helper/auth_helper.php';
 
-requireMethod(array("POST"));
+requireMethod(array("GET", "POST"));
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
+if ($_SERVER['REQUEST_METHOD'] === "GET") {
+    requireUserType(array("Customer", "BackOffice"));
+    requireGetParameters(array('package_id' => array('string')));
+
+    $package = selectPackage($_GET['package_id']);
+    if ($user['type'] === 'Customer') {
+        if ($user['id'] != $package['customer_id']) {
+            http_response_code(403);
+            echo json_encode(array(
+                'error' => 'This package belongs to another customer'
+            ));
+            die;
+        }
+    }
+    echo json_encode($package);
+
+} else if ($_SERVER['REQUEST_METHOD'] === "POST") {
     if (array_key_exists('package_id', $_GET)) {
         requireUserType(array("Customer", "BackOffice"));
         decodePostBody();
@@ -20,6 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     }
 }
 
+/**
+ * Accept a package
+ * @param $json array The json body
+ * @param $packageId integer|string the id of the package
+ */
 function acceptPackage($json, $packageId) {
     global $user;
     $package = selectPackage($packageId);
@@ -62,6 +83,10 @@ function acceptPackage($json, $packageId) {
     updatePackageState($packageId, $package['state']);
 }
 
+/**
+ * Creates a package
+ * @param $json array The json body
+ */
 function createPackage($json) {
     $requiredParameters = array(
         "width" => array("integer", "double"),
@@ -99,7 +124,8 @@ function createPackage($json) {
     $package['customer'] = $user;
     $package['state'] = 'PREPARING';
     $package['paid_price'] = $route['cost'];
-    $package['enter_Date'] = getdate();
+    $package['enter_date'] = time();
+    $package['barcode'] = generateBarcode();
 
     $packageId = insertPackage($package);
 
@@ -108,4 +134,12 @@ function createPackage($json) {
         'package_id' => $packageId,
         'price' => $package['paid_price']
     ));
+}
+
+/**
+ * Generates a barcode
+ * @return string The generated barcode
+ */
+function generateBarcode() {
+    return '123456789';
 }

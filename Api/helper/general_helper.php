@@ -2,7 +2,7 @@
 
 /**
  * Fills the global variable $json with parsed json data from the post body
- * @global type $json The data obtained by json decoding the post body
+ * @global array $json The data obtained by json decoding the post body
  */
 function decodePostBody() {
     global $json;
@@ -41,6 +41,7 @@ function requireMethod(array $allowedMethods) {
  * Kills if any of the variables passed in through the URL is of illegal type
  * @param array $parameters
  * @see requireParameters
+ * @return bool true if valid, doesn't return otherwise
  */
 function requireGetParameters($parameters) {
     return requireParameters($parameters, $_GET, "Illegal parameter in URL");
@@ -51,6 +52,7 @@ function requireGetParameters($parameters) {
  * @param array $parameters
  * @param array $body
  * @see requireParameters
+ * @return bool true if valid, doesn't return otherwise
  */
 function requirePostParameters($parameters, $body) {    
     return requireParameters($parameters, $body, "Illegal parameter in body");
@@ -97,6 +99,14 @@ function generateRandomString($length = 10) {
     return $randomString;
 }
 
+/**
+ * Gets a value from an array
+ *
+ * Doesn't error when the key does not exist
+ * @param $key mixed the key of which to retrieve the value
+ * @param $array array The array from which to retrieve the value
+ * @return mixed the retrieved value, or null if the key does not exist
+ */
 function getArrayValue($key, $array) {
     if (array_key_exists($key, $array)) {
         return $array[$key];
@@ -105,6 +115,10 @@ function getArrayValue($key, $array) {
     }
 }
 
+/**
+ * Modifies $address to guarantee a latitude and longitude value
+ * @param $address array The address in which to add latitude an longitude
+ */
 function fillLatitudeLongitude(&$address) {
     if (!array_key_exists("latitude", $address) || $address["latitude"] === null
         || !array_key_exists("longitude", $address) || $address["longitude"] === null) {
@@ -114,6 +128,12 @@ function fillLatitudeLongitude(&$address) {
     }
 }
 
+/**
+ * Gets the distance between two locations as the crow flies
+ * @param $location1 array The first location
+ * @param $location2 array The second location
+ * @return float The distance in meters between the locations
+ */
 function distanceBetween(&$location1, &$location2) {
     fillLatitudeLongitude($location1);
     fillLatitudeLongitude($location2);

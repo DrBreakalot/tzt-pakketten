@@ -19,9 +19,6 @@ import java.time.Instant;
 import java.time.temporal.TemporalAccessor;
 import java.util.List;
 
-/**
- * Created by Wilco on 12-5-2015.
- */
 public class DataManager {
 
     private final TztService service;

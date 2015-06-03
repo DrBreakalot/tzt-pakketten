@@ -1,7 +1,7 @@
 package nl.windesheim.kbs1.tzt_pakketten.view.login;
 
 import nl.windesheim.kbs1.tzt_pakketten.datamanager.DataManager;
-import nl.windesheim.kbs1.tzt_pakketten.view.overview.Main;
+import nl.windesheim.kbs1.tzt_pakketten.view.overview.MainFrame;
 
 import javax.swing.*;
 
@@ -102,7 +102,7 @@ public class LoginFrame extends javax.swing.JFrame {
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         DataManager.getInstance().login(emailField.getText(), new String(passwordField.getPassword()), (success) -> {
             if (success) {
-                new Main().setVisible(true);
+                new MainFrame().setVisible(true);
                 dispose();
             } else {
                 showLoginFailedDialog();
@@ -130,10 +130,6 @@ public class LoginFrame extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

@@ -4,12 +4,12 @@ package nl.windesheim.kbs1.tzt_pakketten.view.overview;
  *
  * @author Wilco
  */
-public class Main extends javax.swing.JFrame {
+public class MainFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form Main
      */
-    public Main() {
+    public MainFrame() {
         initComponents();
     }
 

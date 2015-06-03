@@ -1,3 +1,7 @@
+<?php
+require_once('helper/userhelper.php');
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,12 +30,9 @@
         </div>
         <div id="menu">
             <ul>
-                <li><a href="home" title="Home">Home</a></li>
-                <li><a href="faq" title="FAQ">FAQ</a></li>
-                <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>
-                <li><a href="Uitloggen" title="Uitloggen">Uitloggen</a></li>
+                <?php echo getMenu(); ?>
             </ul>
-            <span id="midden">
+            <span class="midden">
 
                 hier komt een afbeelding
 
@@ -39,7 +40,7 @@
 
                     Gebruikersnaam: <input type="text" name="voornaam"><br/>
                     <br/>
-                    Wachtwoord: <input type="text" name="achternaam"><br/>
+                    Wachtwoord: <input type="password" name="achternaam"><br/>
                     <br/>
                     Wachtwoord vergeten? Klik hier<br/>
                     <br/>

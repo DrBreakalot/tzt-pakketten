@@ -1,6 +1,7 @@
 <?php
 
 require_once('helper/authhelper.php');
+require_once('helper/userhelper.php');
 
 $heeftGedrukt = FALSE;
 $foutWachtwoord = false;
@@ -40,14 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div id="menu">
             <ul>
-                <li><a href="index.php" title="Home">Home</a></li>
-                <li><a href="onze diensten" title="Onze diensten">Onze diensten</a></li>
-                <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>
-                <li><a href="contact.php" title="Contact">Contact</a></li>
-                <li><a href="treinkoerierStart.php" title="Treinkoerier">Treinkoerier</a></li>
+                <?php echo getMenu(); ?>
 
             </ul>
-            <span id="inlogscherm">
+            <span class="midden" id="inlogscherm">
 
                 <form id="InlogForm" method="post" action="inlogscherm.php">
 

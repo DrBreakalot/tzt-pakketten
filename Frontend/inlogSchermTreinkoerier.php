@@ -1,4 +1,6 @@
 <?php
+require_once('helper/userhelper.php');
+
 $heeftGedrukt = FALSE;
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
      $heeftGedrukt = TRUE;
@@ -33,15 +35,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             </span>
         </div>
         <div id="menu">  
-            <ul>  
-                <li><a href="index.php" title="Home">Home</a></li>  
-                <li><a href="onze diensten" title="Onze diensten">Onze diensten</a></li>  
-                <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>  
-                <li><a href="contact.php" title="Contact">Contact</a></li>
-                <li><a href="treinkoerierStart.php" title="Treinkoerier">Treinkoerier</a></li>
+            <ul>
+                <?php echo getMenu(); ?>
 
             </ul>
-            <span id="inlogscherm">
+            <div id="inlogscherm" class="midden">
 
                 <form id="InlogForm" method="post" action="inlogschermtreinkoerier.php">
                     
@@ -54,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     </span><?php } ?> <br/><br/>
                     
                     <label for "wachtwoord">Wachtwoord:</label>
-                    <input type="text" name="wachtwoord" value="<?php if ($heeftGedrukt == TRUE) {
+                    <input type="password" name="wachtwoord" value="<?php if ($heeftGedrukt == TRUE) {
                         print_r($_POST["wachtwoord"]);
                     }?>">
                     <?php if ($heeftGedrukt == TRUE && (!isset ($_POST["wachtwoord"]) || (strlen($_POST["wachtwoord"]) == 0))) {
@@ -66,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                     <br/>
                     <input id="inloggen2" type="submit" value="Inloggen">
                 </form>
-            </span>
+            </div>
         </div>
     </body>
 </html>

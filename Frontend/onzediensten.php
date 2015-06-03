@@ -1,3 +1,7 @@
+<?php
+require_once('helper/userhelper.php');
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -19,15 +23,11 @@
             </div>
         </div>
         <div id="menu">  
-            <ul>  
-                <li><a href="index.php" title="Home">Home</a></li>  
-                <li><a href="onzediensten.php" title="Onze diensten">Onze diensten</a></li>  
-                <li><a href="mijn pakket" title="Mijn Pakket">Mijn Pakket</a></li>  
-                <li><a href="contact.php" title="Contact">Contact</a></li>
-                <li><a href="treinkoerierStart.php" title="Treinkoerier">Treinkoerier</a></li>
+            <ul>
+                <?php echo getMenu(); ?>
 
             </ul>
-            <div id="middenOnzediensten">
+            <div class="midden" id="middenOnzediensten">
                 <span id="pakketdiensten">Pakketdiensten</span><br/><br/>
                 <div id="pakketdienstenTekst">Door onze unieke concept mogen wij ons de duurzaamste transportbedrijf
                     van Nederland noemen. Hoe wij dat doen? Nou, door de helft van onze kilometers over het spoor te

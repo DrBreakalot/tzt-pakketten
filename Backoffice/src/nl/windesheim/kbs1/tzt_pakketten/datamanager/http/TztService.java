@@ -7,10 +7,8 @@ import retrofit.http.*;
 
 import java.util.List;
 
-/**
- * Created by Wilco on 12-5-2015.
- */
 public interface TztService {
+
     @POST("/auth.php")
     void login(@Body LoginRequest body, Callback<LoginResponse> token);
 

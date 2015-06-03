@@ -13,7 +13,7 @@ public class CustomerPackagePanel extends ListPanel<nl.windesheim.kbs1.tzt_pakke
     private static DateTimeFormatter formatter = new DateTimeFormatterBuilder().appendPattern("d MMM").toFormatter();
 
     public CustomerPackagePanel(Customer customer) {
-        super(object -> String.format("%s : %s -> %s : %s", formatter.format(object.getEnterDate()), stringFromLocation(object.getRoute().getFromAddress()), stringFromLocation(object.getRoute().getToAddress()), object.getState()));
+        super(object -> String.format("%s : %s -> %s : %s", object.getEnterDate() == null ? "" : formatter.format(object.getEnterDate()), stringFromLocation(object.getRoute().getFromAddress()), stringFromLocation(object.getRoute().getToAddress()), object.getState()));
         DataManager.getInstance().getPackages(customer, (success, data) -> {
             if (success) {
                 setElements(data);

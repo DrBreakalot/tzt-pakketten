@@ -5,9 +5,6 @@ import nl.windesheim.kbs1.tzt_pakketten.datamanager.models.customer.Customer;
 
 import javax.swing.*;
 
-/**
- * Created by Wilco on 26-5-2015.
- */
 public class CustomerPanel extends ListPanel<Customer> {
 
     private static final String FORMAT = "%03d - %s";

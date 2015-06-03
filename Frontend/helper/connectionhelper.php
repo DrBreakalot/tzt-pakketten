@@ -7,7 +7,7 @@ function post($url, $body, $token = null) {
 
     $headers = array();
     if ($token) {
-        $headers[] = 'TZT_AUTHORIZATION: ' . $token;
+        $headers[] = 'TZT-AUTHORIZATION: ' . $token;
     }
 
     curl_setopt_array($ch, array(

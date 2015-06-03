@@ -10,9 +10,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
 import java.time.temporal.TemporalAccessor;
 
-/**
- * Created by Dr Breakalot on 31-5-2015.
- */
 public class TemporalAccessorDeserializer implements JsonDeserializer<TemporalAccessor> {
 
     private static DateTimeFormatter formatter = new DateTimeFormatterBuilder()
